@@ -210,6 +210,11 @@ Pr[A_List,x_]:=Map[Apply[Resultant[#1,#2,x]&],Subsets[A,{2}]];
 Pr[A_List,B_List,x_]:=Map[Apply[Resultant[#1,#2,x]&],Select[Tuples[{A,B}],UnsameQ[#[[1]],#[[2]]]&]];
 
 
+(*
+	\:53ea\:7528\:5230\:4e86(x_1,...,x_{n-1})\:7684\:8d4b\:503c\s_{n-1}\:ff0c
+	\:5df2\:77e5x_n\:65e0\:8bba\:53d6\:4ec0\:4e48\:503c\:90fd\:4e0d\:6ee1\:8db3\:516c\:5f0f
+	\:8ba1\:7b97\:5305\:542b\s_{n-1}\:7684cell
+*)
 Pmc[A_List,M_Association,x_]:=
 Module[{A1,B,M1=KeyDrop[M,x],p1},
     A1=DeleteDuplicates[Flatten[Map[FactorList,A][[All,All,1]]]];
@@ -358,6 +363,23 @@ ClauseResolve[Clause_,E_,F_]:=Union[Clause,E]/.{F->Nothing,(-F)->Nothing};
 Leadcoeff[F_,x_]:=Last[CoefficientList[F,x]];
 
 
+(*
+	\:5224\:65ad1,2\:7c7b\:6587\:5b57\:ff0c\:662f\:5426\:548c\:5f53\:524d\:51b2\:7a81\:533a\:95f4\:5217\:8868\:51b2\:7a81\:3002
+	conflictstatelist = {
+	  {left\:2081, right\:2081, closed\:2081, litID\:2081},
+	  {left\:2082, right\:2082, closed\:2082, litID\:2082},
+	  ...
+	}
+	f1:\:6bd4\:8f83\:7684\:9608\:503c
+		1,2->\:5355\:53d8\:5143\:591a\:9879\:5f0f
+		3,4->\:4ee3\:6570\:6570
+		5->False
+	x:\:53d8\:5143
+	l:\:5e26\:7b26\:53f7\:6587\:5b57\:7d22\:5f15
+	isgreat:\:662f\:5426\:662f\:5927\:4e8e(\:5927\:4e8e\:7b49\:4e8e)
+	
+	\:8fd4\:56de:{\:662f\:5426\:51b2\:7a81\:ff0c\:65b0\:7684\:5f53\:524d\:51b2\:7a81\:533a\:95f4\:5217\:8868}
+*)
 CheckConflictHalf[conflictstatelist_List,f1_,x_,l_Integer,isgreat_,isequal_]:=
 Module[{isclose,rootnum,a,b,k,midcheck,skip,selectstate,status=False,rootindex,newconflictstatelist={},listindex,listlength},
     isclose=!isequal;
@@ -2200,8 +2222,12 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
         getFnow,getFlevel,getClause,checkconflict,Polynomialroot,getorder,addl,getF, flag,
         samplecell,getsamplecell,nextsamplecell,maxlevel,deg,maxCntLS,cntAssign,completeAssignment,lsInit1={},ansLS,cntTLE,cad,cntCAD=0,maxCntCAD},   
         
+       (*F:\:6240\:6709\:7684\:6587\:5b57*)
        F=Map[{1,#}&,F1];
        assignment=Association[Map[#->0&,X]];
+       (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780113\:884c*)
+       
+       (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780113\:884c*)
        (*Print[F];*)
        lnum=Length[F];
        (*Symmetry Check*)
@@ -2228,11 +2254,11 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
        Scan[(fmap[F[[#]]]=# )&,Range[lnum]];
        getorder=Function[l,
              Switch[l[[1]],
-                  1,Max[Map[xmap[#]&,Variables[l[[2]]]]],
-                  2,Max[Map[xmap[#]&,Variables[l[[2]]]]],
-                  3,xmap[l[[4]]],
-                  4,xmap[l[[4]]],
-                  5,Length[l[[3]]]
+                  1,Max[Map[xmap[#]&,Variables[l[[2]]]]], (*{1, f}, f(x) > 0*)
+                  2,Max[Map[xmap[#]&,Variables[l[[2]]]]], (*{2, f}, f(x) == 0*)
+                  3,xmap[l[[4]]], (*{3, f, c, x}, x > \:7b2c c \:4e2a f \:7684\:6839*)
+                  4,xmap[l[[4]]], (*{4, f, c, x}, x < \:7b2c c \:4e2a f \:7684\:6839*)
+                  5,Length[l[[3]]] (*{5, \:7ed3\:6784\:5316\:80de\:8154, a,{\:4f4e\:7ef4\:80de\:8154\:6587\:5b57\:ff0c\:8d1f\:7684\:8fd9\:4e00\:5c42\:7684\:8fb9\:754c\:6587\:5b57\:7d22\:5f15}}, \:7ed3\:6784\:5316\:80de\:8154\:63cf\:8ff0*)
               ]
          ];
        Ci=Table[{},varnum];
@@ -2254,6 +2280,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
        (* Scan[If[Length[F[[#]]]>1,Flevel[[#]]=Polynomialroot[F[[#,1]]/.assignment,Abs[F[[#,2]]]],Flevel[[#]]=F[[#,1]]/.assignment]&,levell[[level]]];     *)
        Scan[(Flevel[[#]]=F[[#,2]]/.(X[[1]]->z))&,levell[[level]]];
        (* levelc[[level]]=Select[ Map[{Select[Clause[[#]],lorder[[Abs[#]]]==level& ],#}&,Ci[[level]]], Not[MemberQ[Map[Fnow[[#]]&,Select[Clause[[#[[2]]]],lorder[[Abs[#]]]<level&]],True]]& ]; *)
+       (*levelc:level->{{\:5b50\:53e5,\:5b50\:53e5\:7d22\:5f15},...}, Cstatus:\:5b50\:53e5\:7d22\:5f15->{\:672a\:77e5\:6587\:5b57\:6570,\:771f\:6587\:5b57\:6570}*)
        levelc[[level]]=Map[{Clause[[#]],#}&,Ci[[level]]];
        Scan[(VC[[1]][[#]]={};VC[[-1]][[#]]={})&,levell[[level]] ];
        For[i=1,i<=Length[levelc[[level]]],++i,
@@ -2261,12 +2288,17 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
             Cstatus[[levelc[[level,i,2]]]]={Length[levelc[[level,i,1]]],0}
         ];
        Polynomialroot[F_,Index_]:=If[Index>CountRoots[F,z],Infinity,Root[F,Index]];
+       (*getsamplecell:\:591a\:9879\:5f0f\:96c6\:5408,\:8d4b\:503c->\:6587\:5b57id
+       \:53ef\:80fd\:662fn\:7ef4\:591a\:9879\:5f0f\:96c6\:5408\:ff0cn-1\:7ef4\:8d4b\:503c
+       \:4e5f\:53ef\:80fd\:662fn-1\:7ef4\:7ed3\:6784\:5316\:80de\:8154\:ff08n\:7ef4\:591a\:9879\:5f0f\:7ed3\:6784\:ff09\:ff0cn-1\:7ef4\:8d4b\:503c {B,A1,A0,{A2,{A0[[leftindex]],A0[[rightindex]]}}}}
+       *)
        getsamplecell=Function[{l,a},
              Module[{newl},
                   If[Length[a]!=0,
                        newl=getF[{5,l,a}];
                        ,newl=Nothing];
                   newl]];
+       (*nextsamplecell:\:591a\:9879\:5f0f\:96c6\:ff0c\:8d4b\:503c\:ff0c\:53d8\:91cf*)
        nextsamplecell=Function[{lst,a,x0},
              Module[{pc=GetSampleInterval[lst,a,x0],nextl,fg,fl},
                   nextl={getsamplecell[pc[[2]],a[[;;-2]]]};
@@ -2283,12 +2315,15 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
          ];
        samplecell=Function[i,If[F[[i,1]]==5 && SameQ[F[[i,4]],False],
               Module[{newlist=If[Length[F[[i,2]]]==1,
+                                      (*\:7b2c\:4e00\:5c42\:6295\:5f71*)
                                       Pmc[F[[i,2,1]],assignment,X[[lorder[[i]]+1]]],
+                                      (*\:540e\:7eed\:6295\:5f71\:ff0c\:5355\:80de\:8154\:6784\:9020*)
                                       Ps[F[[i,2]],F[[i,3]],X[[lorder[[i]]+1]]]],
                         x0=X[[lorder[[i]]]]},
                        F[[i,4]]=nextsamplecell[newlist,F[[i,3]],x0];
                ]]];
-   
+       (*\:6839\:636e\:5f53\:524d\:7684\:7406\:8bba\:8d4b\:503c\:ff0c\:8ba1\:7b97\:6587\:5b57\:7684\:771f\:503c*)
+       (*\:5982\:679c\:662f\:80de\:8154\:ff0c\:90a3\:4e48\:4f4e\:7ef4\:5ea6\:7684\:80de\:8154\:7684\:771f\:503c\:5df2\:7ecf\:7b97\:8fc7\:4e86*)
        getFnow=(Switch[F[[#,1]],
                1,(F[[#,2]]/.assignment)>0,
                2,(F[[#,2]]/.assignment)==0,
@@ -2304,6 +2339,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                               (!Xor[Fnow[[Abs[#]]],#>0])&
                               ,F[[#,4]]],True]]
            ])&;
+       (*getFlevel:1,2\:6587\:5b57->\:5355\:53d8\:5143\:591a\:9879\:5f0f;23\:6587\:5b57->\:6bd4\:8f83\:7684\:9608\:503c*)
        getFlevel=(Switch[F[[#,1]],
                1,F[[#,2]]/.(X[[level]]->z)/.assignment,
                2,F[[#,2]]/.(X[[level]]->z)/.assignment,
@@ -2311,6 +2347,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                4,Polynomialroot[F[[#,2]]/.assignment,F[[#,3]]],
                _,False
            ])&;
+       (*getClause:\:603b\:7684cnf,\:5b50\:53e5\:7d22\:5f15\:5217\:8868->\:4e00\:4e2a\:5b50cnf(\:4e22\:6389\:4e0d\:6ee1\:8db3\:7684\:6587\:5b57,\:88ab\:6ee1\:8db3\:7684\:5b50\:53e5)*)
        getClause=Function[{c,l},
              Select[
                   Map[{Map[
@@ -2319,6 +2356,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                            ,c[[#]]]/.(False->Nothing),#}&,l],
                   Not[MemberQ[#[[1]],True]]&]
          ];
+       (*checkconflict:\:8fd9\:4e00\:5c42\:7684\:51b2\:7a81\:533a\:95f4list,\:5e26\:7b26\:53f7\:6587\:5b57\:7d22\:5f15->{\:662f\:5426\:51b2\:7a81\:ff0c\:65b0\:7684\:51b2\:7a81\:533a\:95f4\:5217\:8868}*)
        checkconflict=Function[{list,index},
              Switch[F[[Abs[index],1]],
                   1,CheckConflictHalf[list,Flevel[[Abs[index]]],z,index,index>0,False],
@@ -2340,6 +2378,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                   ans
               ]
          ];
+       (*addl:\:4f20\:64ad{a,cc} \:6216\:8005 \:51b3\:7b56{a}*)
        addl=Function[l,
              Module[{index=l[[1]]},
                   M[[Abs[index]]]=Sign[index];AppendTo[ML[[level]],l];Morder[[Abs[index]]]=Length[ML[[level]]];
@@ -2361,16 +2400,32 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                     Return[{"sat","openCAD"}];
                 ];
             ];*)
+            (*\:9009\:62e9\:8fd9\:4e00\:5c42\:672a\:88ab\:6ee1\:8db3\:7684\:5b50\:53e5\:4e2d\:ff0c\:672a\:77e5\:6587\:5b57\:6700\:5c11\:7684*)
             tmpc=MinimalBy[Select[Range[Length[levelc[[level]]]],Cstatus[[levelc[[level,#,2]],2]]==0&],Cstatus[[levelc[[level,#,2]],1]]&];
             tmpcl=MinimalBy[Select[Range[Length[levelcl[[level]]]],Clstatus[[levelcl[[level,#,2]],2]]==0&],Clstatus[[levelcl[[level,#,2]],1]]&];
+            
             If[Length[tmpc]==0 && Length[tmpcl]==0,
+               (*\:8fd9\:4e00\:5c42\:6ca1\:6709\:672a\:88ab\:6ee1\:8db3\:7684\:5b50\:53e5\:4e86*)
+                 (*\:627e\:4e00\:4e2a\:4e0d\:5728\:51b2\:7a81\:533a\:95f4\:5217\:8868\:4e2d\:7684\:5f53\:524dlevel\:53d8\:91cf\:7684\:8d4b\:503c\:ff0c\:57fa\:4e8e\:8d4b\:503c\:4f20\:64ad\:6587\:5b57\:7684\:771f\:503c*)
                  assignment[X[[level]]]=FindMid[conflictstatelist[[level]]];
+                 (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5982\:679c\:524dlevel\:7ef4\:7684\:8d4b\:503c\:4e0d\:51b2\:7a81\:ff0c\:9009\:62e9\:539f\:6765\:7684\:3002\:5426\:5219\:ff0c\:91cd\:65b0\:9009\:4e00\:4e2a\:ff0c\:5bf9\:5e94\:4f2a\:4ee3\:78019-10\:884c*)
+                 
+                 (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5982\:679c\:524dlevel\:7ef4\:7684\:8d4b\:503c\:4e0d\:51b2\:7a81\:ff0c\:9009\:62e9\:539f\:6765\:7684\:3002\:5426\:5219\:ff0c\:91cd\:65b0\:9009\:4e00\:4e2a\:ff0c\:5bf9\:5e94\:4f2a\:4ee3\:78019-10\:884c*)
                  (* Scan[If[M[[#]]!=0,Fnow[[#]]=M[[#]]>0,If[Length[F[[#]]]>1,If[F[[#,2]]>0,Fnow[[#]]=assignment[X[[level]]]>Flevel[[#]],Fnow[[#]]=assignment[X[[level]]]<Flevel[[#]]],Fnow[[#]]=((F[[#,1]]/.assignment)>0)]]&,levell[[level]]]; *)
                  Scan[If[M[[#]]!=0,Fnow[[#]]=M[[#]]>0,If[F[[#,1]]!=5,Fnow[[#]]=getFnow[#]]]&,levell[[level]]];
                  Scan[If[M[[#]]==0 && F[[#,1]]==5,Fnow[[#]]=getFnow[#]]&,levell[[level]]];
-                 
+                 (*\:589e\:52a0level*)
                  ++level;maxlevel=Max[level,maxlevel];
                  If[level>varnum,Return[{"sat","mcsat"}]];
+                 (*
+	                 \:521d\:59cb\:5316\:8fd9\:4e00\:5c42
+	                 conflictstatelist,
+	                 \:51b3\:7b56M,ML,
+	                 \:9608\:503c:Flevel,
+	                 \:8ba1\:7b97\:8fd9\:4e00\:5c42\:7684cnf:levelc,levelcl,
+	                 \:6587\:5b57-\:5b50\:53e5\:7d22\:5f15:VC
+	                 \:5b50\:53e5\:6ee1\:8db3\:72b6\:6001:Cstatus,Clstatus
+                 *)
                  conflictstatelist[[level]]={};
                  Scan[(M[[#]]=0)&,levell[[level]]];ML[[level]]={};
                  (* Scan[If[Length[F[[#]]]>1,Flevel[[#]]=Polynomialroot[F[[#,1]]/.assignment,Abs[F[[#,2]]]],Flevel[[#]]=F[[#,1]]/.assignment]&,levell[[level]]];     *)
@@ -2388,21 +2443,33 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                       Scan[AppendTo[VC[[Sign[#],Abs[#]]], -levelcl[[level,i,2]] ]&,levelcl[[level,i,1]]];
                       Clstatus[[levelcl[[level,i,2]]]]={Length[levelcl[[level,i,1]]],0}
                   ];
+                  (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:9650\:5236\:524dlevel\:7ef4\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780114-19\:884c*)
+                  
+                  (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:9650\:5236\:524dlevel\:7ef4\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780114-19\:884c*)
              ,
+             (*\:8fd9\:4e00\:5c42\:6709\:672a\:88ab\:6ee1\:8db3\:7684\:5b50\:53e5,tmpc\:662f\:5176\:4e2d\:672a\:77e5\:6587\:5b57\:4e2a\:6570\:6700\:5c11\:7684*)  
+             (*status:
+                      -1, \:5bf9\:539f\:59cb\:5b50\:53e5\:8fdb\:884c\:51b3\:7b56
+                      0,  \:6709unsat\:7684\:5b50\:53e5
+                      1,  \:5b50\:53e5\:53ef\:4ee5\:5355\:4f4d\:89c4\:7ea6
+                      2\:ff0c \:5bf9\:5b66\:4e60\:5b50\:53e5\:8fdb\:884c\:51b3\:7b56
+             *)
                  status=-1;
                  If[Length[tmpc]>0,
-                      If[Cstatus[[levelc[[level,tmpc[[1]],2]],1]]==0,status=0;nowc=tmpc[[1]],
-                           If[Cstatus[[levelc[[level,tmpc[[1]],2]],1]]==1,status=1;nowc=tmpc[[1]],status=2;nowc=tmpc[[1]]]]
+                      If[Cstatus[[levelc[[level,tmpc[[1]],2]],1]]==0,(*\:6709unsat\:7684\:5b50\:53e5*)status=0;nowc=tmpc[[1]],
+                           If[Cstatus[[levelc[[level,tmpc[[1]],2]],1]]==1,(*\:5b50\:53e5\:53ef\:4ee5\:5355\:4f4d\:89c4\:7ea6*)status=1;nowc=tmpc[[1]],status=2;nowc=tmpc[[1]]]]
                   ];
                  If[status!=0 && Length[tmpcl]>0,
-                      If[Clstatus[[levelcl[[level,tmpcl[[1]],2]],1]]==0,status=0;nowc=-tmpcl[[1]],
-                           If[Clstatus[[levelcl[[level,tmpcl[[1]],2]],1]]==1 && status!=1,status=1;nowc=-tmpcl[[1]]];
-                           If[status==-1,status=2;nowc=-tmpcl[[1]]]
+                      If[Clstatus[[levelcl[[level,tmpcl[[1]],2]],1]]==0,(*\:6709unsat\:7684\:5b50\:53e5*)status=0;nowc=-tmpcl[[1]],
+                           If[Clstatus[[levelcl[[level,tmpcl[[1]],2]],1]]==1 && status!=1,(*\:539f\:59cb\:5b50\:53e5\:4e0d\:96be\:5355\:4f4d\:89c4\:7ea6\:ff0c\:5b66\:4e60\:5b50\:53e5\:53ef\:4ee5\:5355\:4f4d\:89c4\:7ea6*)status=1;nowc=-tmpcl[[1]]];
+                           If[status==-1,(*\:539f\:59cbcnf\:88ab\:6ee1\:8db3\:ff0c\:5bf9\:5b66\:4e60\:5b50\:53e5\:8fdb\:884c\:51b3\:7b56*)status=2;nowc=-tmpcl[[1]]]
                        ]
                   ];
                  If[status==0,
+                 (*nowc\:51b2\:7a81\:ff0c\:51b2\:7a81\:5904\:7406*)
                       If[nowc>0,conflict=Clause[[levelc[[level,nowc,2]]]],conflict=Clearn[[levelcl[[level,-nowc,2]]]]];
                       While[status==0,
+                           (*\:904d\:5386\:8fd9\:5f53\:524d\:4f20\:64ad\:7684\:6587\:5b57,\:89c4\:7ea6\:8ba1\:7b97\:51b2\:7a81\:5b50\:53e5\:ff0c\:53ea\:5269\:4e0b\:51b3\:7b56\:7684\:6587\:5b57\:ff0c\:4ee5\:53ca\:5728\:524d\:9762level\:786e\:5b9a\:771f\:503c\:7684\:6587\:5b57*)
                            For[a = Select[conflict, lorder[[Abs[#]]]==level && M[[Abs[#]]]!=0 && Length[ML[[level,Morder[[Abs[#]]]]]] == 2 &],Length[a] != 0, 
                                        a = Select[conflict, lorder[[Abs[#]]]==level && M[[Abs[#]]]!=0 && Length[ML[[level,Morder[[Abs[#]]]]]] == 2 &],
                                 conflict = Fold[ClauseResolve[#1, ML[[level,Morder[[Abs[#2]]],2]], #2] &, conflict, a];
@@ -2411,8 +2478,10 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                            tmplevel=Max[Map[lorder[[Abs[#]]]&,conflict]];
                            
                            If[tmplevel==level,
+                           (*\:8bf4\:660e\:5728\:8fd9\:5c42\:6709\:51b3\:7b56\:7684\:6587\:5b57*)
                                 a=Select[conflict,(lorder[[Abs[#]]]==level && F[[Abs[#],1]]==5)&];
                                 If[Length[a]!=0,
+                                (*\:51b2\:7a81-\:51b3\:7b56\:4e2d\:6709\:5728\:5f53\:524dlevel\:7684\:80de\:8154\:ff0c\:ff08\:80de\:8154\:662f\:4ece\:4e0b\:4e00\:4e2alevel\:4f20\:9012\:56de\:6765\:7684\:ff09*)
                                      (* Scan[samplecell[#]&,a];
                                      If[Length[a]==1 || level==1,
                                          conflict=DeleteDuplicates[
@@ -2428,21 +2497,25 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                                              conflict=DeleteDuplicates[Flatten[{conflict,c}]];
                                          ];
                                      ]; *)
+                                     (*\:80de\:8154\:4e00\:5b9a\:662f\:6b63\:6587\:5b57\:ff0c\:8868\:793a\:4e0d\:5728\:8fd9\:4e2a\:80de\:8154\:91cc\:ff0c\:8ba1\:7b97\:4e00\:5c42\:6295\:5f71\:80de\:8154\:ff0c\:5e76\:4e14\:628a\:8fd9\:4e00\:5c42\:7684\:8fb9\:754c\:548c\:4f4e\:7ef4cell\:653e\:8fdb\:6765*)
                                      conflict=DeleteDuplicates[
                                            Fold[(If[#2<0,Print["error:",  #, " in conflict ."]];
                                               samplecell[#2];#1/.(#2->Sequence@@F[[#2,4]]))&
                                             ,conflict,a]];
                                      tmplevel=Max[Map[lorder[[Abs[#]]]&,conflict]];
                                      ,
+                                 (*\:51b2\:7a81-\:51b3\:7b56\:4e2d\:6ca1\:6709\:5728\:5f53\:524dlevel\:7684\:80de\:8154*)
                                      AppendTo[Clearn,conflict];
                                      AppendTo[Cli[[level]],Length[Clearn]];
                                      Scan[AppendTo[VC[[Sign[#],Abs[#] ]],-Length[Clearn]]&, Select[conflict,lorder[[Abs[#]]]==level& ] ];
+                                     (*\:5728\:5f53\:524d\:7684M\:4e0b,\:8fd9\:4e00\:5c42\:53ea\:6709\:8fd9\:4e2alevel\:7684\:6587\:5b57\:9700\:8981\:4fdd\:7559*)
                                      a=Select[conflict,lorder[[Abs[#]]]==level&];
                                      AppendTo[levelcl[[level]],{a,Length[Clearn]}];
                                      AppendTo[Clstatus,{Length[Select[a,M[[Abs[#]]]==0&]],0}];
                                      If[Clstatus[[-1,1]]<2,status=1,status=2];
                                      nowc=-Length[levelcl[[level]]];
                                      If[Clstatus[[-1,1]]==0,
+                                     (*\:5982\:679c\:51b2\:7a81\:5b50\:53e5unsat, \:56de\:6eaf\:4e0a\:4e00\:4e2a\:51b3\:7b56\:ff0c\:4ece\:800c\:53ef\:4ee5\:4f20\:64ad*)
                                           If[Length[a]==1,a=Max[Map[Morder[[Abs[#]]]&,a]]-1,
                                                a=RankedMax[Map[Morder[[Abs[#]]]&,a],2]];
                                           Scan[
@@ -2457,6 +2530,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                                               CheckConflictHalf[#1,Flevel[[Abs[#2[[1]]]]],#2[[1]],!Xor[F[[Abs[#2[[1]]],2]]>0,#2[[1]]>0],False][[2]]]&
                                           ,{},ML[[level]]]]; *)
                                           conflictstatelist[[level]]=Fold[checkconflict[#1,#2[[1]]][[2]]&,{},ML[[level]]]]]];
+                           (*\:56de\:5230\:4e0a\:4e00\:5c42\:ff0c\:91cd\:65b0\:5f52\:56e0*)
                            level=tmplevel;
                        ]
                   ];
@@ -2549,11 +2623,13 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
             (*Ding: local search solver -- end*)
             (*Print["END: mcsat-exLS"];*)
             
-            
+                 (*\:8ba1\:7b97\:5f53\:524d\:5b50\:53e5*)
                  If[nowc>0,cc=levelc[[level,nowc,1]],cc=levelcl[[level,-nowc,1]]];
                  If[status==1,
+                 (*\:5355\:4f4d\:89c4\:7ea6*)
                       a=Select[cc,M[[Abs[#]]]==0&][[1]];
                   ,
+                  (*\:51b3\:7b56\:ff0c\:9009\:62e9\:5305\:542b\:5728(\:6ca1\:6709\:88ab\:5224\:5b9a\:4e3a\:771f\:7684)\:5b50\:53e5\:6700\:591a\:7684\:6587\:5b57\:ff0c\:8fd9\:6837\:53ef\:4ee5\:5316\:7b80\:5c3d\:53ef\:80fd\:591a\:7684\:5b50\:53e5*)
                       a=MaximalBy[Select[cc,M[[Abs[#]]]==0&],Length[Select[VC[[Sign[#],Abs[#]]],If[#<0,Clstatus[[-#,2]]==0,Cstatus[[#,2]]==0]&]]&][[1]];
                   ];
                  (* If[Length[F[[Abs[a]]]]==1,
@@ -2561,14 +2637,17 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                  ,
                      tmpc=CheckConflictHalf[conflictstatelist[[level]],Flevel[[Abs[a]]],a,!Xor[F[[Abs[a],2]]>0,a>0],False];
                  ]; *)
+                 (*\:68c0\:67e5\:6587\:5b57a\:6709\:6ca1\:6709\:5bfc\:81f4\:5f53\:524dlevel\:7684\:8d4b\:503c\:51b2\:7a81\:ff0c\:66f4\:65b0\:5f53\:524dlevel\:7684\:8d4b\:503c\:ff0c\:4f46\:662f\:5982\:679ca={5,...}\:600e\:4e48\:529e\:ff1f*)
                  tmpc=checkconflict[conflictstatelist[[level]],a];
                  If[tmpc[[1]],
                       conflictstatelist[[level]]=tmpc[[2]];
                       If[nowc>0,cc=Clause[[levelc[[level,nowc,2]]]],cc=Clearn[[levelcl[[level,-nowc,2]]]]];
                   ,
+                  (*\:5f53\:524dlevel\:7684\:8d4b\:503c\:51b2\:7a81\:ff0c\:9009\:62e9\:5f53\:524dlevel\:7684\:533a\:95f4\:8986\:76d6\:6d89\:53ca\:7684\:6587\:5b57*)
                       cc=DeleteDuplicates[Map[#[[4]]&,tmpc[[2]]]];
                       If[level>1,
                            Module[{l},
+                           (*\:53d6\:51fa\:6587\:5b57\:5305\:542b\:6d89\:53ca\:7684level\:7ef4\:591a\:9879\:5f0f\:ff0c\:5e76\:6ce8\:518clevel-1\:7ef4\:7684\:80de\:8154\:ff08\:6ce8\:518c\:4f46\:662f\:6ca1\:6709\:8ba1\:7b97\:ff09\:ff0c\:8fd9\:91cc\:7b2c\:4e00\:6b21\:6295\:5f71\:4f1a\:7528\:5e26n-1\:7ef4\:6837\:672c\:70b9\:7684\:6295\:5f71\:7b97\:5b50\:ff0c\:540e\:7eed\:662f\:5355\:80de\:8154\:6295\:5f71*)
                                 l=Map[Function[x,
                                            If[F[[Abs[x],1]]==1 || F[[Abs[x],1]]==2,
                                                 F[[Abs[x],2]],
@@ -2578,8 +2657,12 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                                 conflict=getsamplecell[{l},assignment[[;;level-1]]];
                             ]
                            ,
+                      (*\:5982\:679clevel=1\:ff0c\:51b2\:7a81\:4e3a\:7a7a*)
                            conflict=Nothing;
                        ];
+                       (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:589e\:52a0\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780140\:884c*)  
+                       
+                       (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:589e\:52a0\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780140\:884c*)   
                       (* cc=Flatten[{conflict,Map[Minus,cc]}];  *)
                       cc={Sequence@@Map[Minus,cc],conflict};
                       a=-a;
@@ -2593,6 +2676,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                  Scan[If[#>0,--Cstatus[[#,1]],--Clstatus[[-#,1]]]&,VC[[-Sign[a],Abs[a]]]]; *)
                  (* Theoretical reasoning *)
                  (* If[Length[F[[Abs[a]]]]>1 && UnsameQ[Head[status=fmap[{F[[Abs[a],1]],-F[[Abs[a],2]],F[[Abs[a],3]]}]],Missing] && M[[status]]==0 , *)
+                 (*\:5bf9\:4e8e3,4\:7c7b\:6587\:5b57\:ff0c\:628a\:53cd\:6587\:5b57\:5b50\:53e5\:4e5f\:51b3\:7b56*)
                  If[F[[Abs[a],1]]==3 || F[[Abs[a],1]]==4,
                       status=getF[{7-F[[Abs[a],1]],Sequence@@F[[Abs[a],2;;]]}];
                       If[M[[status]]==0,cc=a;a=-1*Sign[a]*status;cc={a,-cc};addl[{a,cc}];]
@@ -2601,7 +2685,9 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                       Scan[If[#>0,--Cstatus[[#,1]],--Clstatus[[-#,1]]]&,VC[[-Sign[a],Abs[a]]]]; *)
                   ]
              ]
+        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5f53\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:8fbe\:5230\:9608\:503c\:65f6\:ff0c\:8fd0\:884cOpenCAD\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780155-56\:884c*) 
     
+        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5f53\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:8fbe\:5230\:9608\:503c\:65f6\:ff0c\:8fd0\:884cOpenCAD\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780155-56\:884c*)      
         ]
    ];
 
