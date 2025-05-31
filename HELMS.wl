@@ -478,6 +478,22 @@ Module[{isclose,rootnum,a,b,k,midcheck,skip,selectstate,status=False,rootindex,n
 ];
 
 
+(*
+	\:5224\:65ad3,4\:7c7b\:6587\:5b57\:ff0c\:662f\:5426\:548c\:5f53\:524d\:51b2\:7a81\:533a\:95f4\:5217\:8868\:51b2\:7a81\:3002
+	conflictstatelist = {
+	  {left\:2081, right\:2081, closed\:2081, litID\:2081},
+	  {left\:2082, right\:2082, closed\:2082, litID\:2082},
+	  ...
+	}
+	r:\:6bd4\:8f83\:7684\:9608\:503c
+		1,2->\:5355\:53d8\:5143\:591a\:9879\:5f0f
+		3,4->\:4ee3\:6570\:6570
+		5->False
+	l:\:5e26\:7b26\:53f7\:6587\:5b57\:7d22\:5f15
+	isgreat:\:662f\:5426\:662f\:5927\:4e8e(\:5927\:4e8e\:7b49\:4e8e)
+	
+	\:8fd4\:56de:{\:662f\:5426\:51b2\:7a81\:ff0c\:65b0\:7684\:5f53\:524d\:51b2\:7a81\:533a\:95f4\:5217\:8868}
+*)
 CheckConflictHalf[conflictstatelist_List,r_,l_Integer,isgreat_,isequal_]:=
 Module[{isclose,status=False,index,newlist},
     isclose=!isequal;
@@ -512,6 +528,14 @@ FindMid[x_,y_]:=Module[{x1=1,y1=0},
 ];
 
 
+(*
+	\:5728\:5f53\:524d\:51b2\:7a81\:533a\:95f4\:5217\:8868\:4e2d\:ff0c\:627e\:4e00\:4e2a\:4e0d\:843d\:5165\:4efb\:4f55\:51b2\:7a81\:533a\:95f4\:7684\:5b9e\:6570\:70b9\:ff0c\:4f5c\:4e3a\:5f53\:524d\:5b9e\:53d8\:91cf\:7684\:8d4b\:503c\:5019\:9009\:503c\:3002
+	conflictstatelist = {
+	  {left\:2081, right\:2081, closed\:2081, litID\:2081},
+	  {left\:2082, right\:2082, closed\:2082, litID\:2082},
+	  ...
+	}
+*)
 FindMid[conflictstatelist_List]:=Module[{len=0,mid=Infinity,x},
     len=Length[conflictstatelist];
     If[len==0,Return[1]];
@@ -2281,7 +2305,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
        Scan[(Flevel[[#]]=F[[#,2]]/.(X[[1]]->z))&,levell[[level]]];
        (* levelc[[level]]=Select[ Map[{Select[Clause[[#]],lorder[[Abs[#]]]==level& ],#}&,Ci[[level]]], Not[MemberQ[Map[Fnow[[#]]&,Select[Clause[[#[[2]]]],lorder[[Abs[#]]]<level&]],True]]& ]; *)
        (*levelc:level->{{\:5b50\:53e5,\:5b50\:53e5\:7d22\:5f15},...}, Cstatus:\:5b50\:53e5\:7d22\:5f15->{\:672a\:77e5\:6587\:5b57\:6570,\:771f\:6587\:5b57\:6570}*)
-       levelc[[level]]=Map[{Clause[[#]],#}&,Ci[[level]]];
+       levelc[[level]]=Map[{Clause[[#]],#}&,Ci[[level]]]; 
        Scan[(VC[[1]][[#]]={};VC[[-1]][[#]]={})&,levell[[level]] ];
        For[i=1,i<=Length[levelc[[level]]],++i,
             Scan[AppendTo[VC[[Sign[#],Abs[#]]], levelc[[level,i,2]] ]&,levelc[[level,i,1]]];
@@ -2470,7 +2494,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                       If[nowc>0,conflict=Clause[[levelc[[level,nowc,2]]]],conflict=Clearn[[levelcl[[level,-nowc,2]]]]];
                       While[status==0,
                            (*\:904d\:5386\:8fd9\:5f53\:524d\:4f20\:64ad\:7684\:6587\:5b57,\:89c4\:7ea6\:8ba1\:7b97\:51b2\:7a81\:5b50\:53e5\:ff0c\:53ea\:5269\:4e0b\:51b3\:7b56\:7684\:6587\:5b57\:ff0c\:4ee5\:53ca\:5728\:524d\:9762level\:786e\:5b9a\:771f\:503c\:7684\:6587\:5b57*)
-                           For[a = Select[conflict, lorder[[Abs[#]]]==level && M[[Abs[#]]]!=0 && Length[ML[[level,Morder[[Abs[#]]]]]] == 2 &],Length[a] != 0, 
+						   For[a = Select[conflict, lorder[[Abs[#]]]==level && M[[Abs[#]]]!=0 && Length[ML[[level,Morder[[Abs[#]]]]]] == 2 &],Length[a] != 0, 
                                        a = Select[conflict, lorder[[Abs[#]]]==level && M[[Abs[#]]]!=0 && Length[ML[[level,Morder[[Abs[#]]]]]] == 2 &],
                                 conflict = Fold[ClauseResolve[#1, ML[[level,Morder[[Abs[#2]]],2]], #2] &, conflict, a];
                             ];
@@ -2686,7 +2710,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                   ]
              ]
         (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5f53\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:8fbe\:5230\:9608\:503c\:65f6\:ff0c\:8fd0\:884cOpenCAD\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780155-56\:884c*) 
-    
+        
         (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5f53\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:8fbe\:5230\:9608\:503c\:65f6\:ff0c\:8fd0\:884cOpenCAD\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780155-56\:884c*)      
         ]
    ];
