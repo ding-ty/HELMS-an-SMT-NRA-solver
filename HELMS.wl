@@ -2247,10 +2247,27 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
         samplecell,getsamplecell,nextsamplecell,maxlevel,deg,maxCntLS,cntAssign,completeAssignment,lsInit1={},ansLS,cntTLE,cad,cntCAD=0,maxCntCAD},   
         
        (*F:\:6240\:6709\:7684\:6587\:5b57*)
+       (*F1\:662f\:4e00\:4e2a\:5b57\:6bb5\:7684\:5b57\:6bb5*)
        F=Map[{1,#}&,F1];
        assignment=Association[Map[#->0&,X]];
        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780113\:884c*)
-       
+       ansLS=TimeConstrained[
+            ELSSolver0[
+                F1,
+                newPolyList,newCnf,newVarList,X,
+                varInterval,3(*,maxCntLS,True*)
+            ],
+            1,{"unknown","ELS-TLE"}
+        ];
+        (*If[Length[ansLS]>=3,cntLS=ansLS[[3]]];*)
+        (*Print["ExtendedLS: ",{F1/.Take[Normal[assignment],cntAssign],cnf0,Take[X,-(varnum-cntAssign)],1,cntLS,maxCntLS}];*)
+        If[ansLS[[1]]=="sat",Return[{"sat","mcsat-ELS"}];(*cntLS=ansLS[[3]];*)];
+        If[ansLS[[2]]=="ELS-TLE",cntTLE++;];
+        assignment=assignment/.newsolverx;
+        (*Print["assignment: ",assignment];*)
+        (*Print["ansLS: ",ansLS];*)
+        (*Print["mcsat: ",assignment];*)
+        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780113\:884c*)
        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780113\:884c*)
        (*Print[F];*)
        lnum=Length[F];
@@ -2431,9 +2448,18 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
             If[Length[tmpc]==0 && Length[tmpcl]==0,
                (*\:8fd9\:4e00\:5c42\:6ca1\:6709\:672a\:88ab\:6ee1\:8db3\:7684\:5b50\:53e5\:4e86*)
                  (*\:627e\:4e00\:4e2a\:4e0d\:5728\:51b2\:7a81\:533a\:95f4\:5217\:8868\:4e2d\:7684\:5f53\:524dlevel\:53d8\:91cf\:7684\:8d4b\:503c\:ff0c\:57fa\:4e8e\:8d4b\:503c\:4f20\:64ad\:6587\:5b57\:7684\:771f\:503c*)
-                 assignment[X[[level]]]=FindMid[conflictstatelist[[level]]];
+                 (* assignment[X[[level]]]=FindMid[conflictstatelist[[level]]]; *)
                  (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5982\:679c\:524dlevel\:7ef4\:7684\:8d4b\:503c\:4e0d\:51b2\:7a81\:ff0c\:9009\:62e9\:539f\:6765\:7684\:3002\:5426\:5219\:ff0c\:91cd\:65b0\:9009\:4e00\:4e2a\:ff0c\:5bf9\:5e94\:4f2a\:4ee3\:78019-10\:884c*)
-                 
+                 Module[{cfsl = conflictstatelist[[level]], isinconflictstatelist = False, x = assignment[X[[level]]]},
+					If[
+                        AnyTrue[
+                        cfsl,
+                        #1[[1]] < x < #1[[2]] || 
+                        ((#1[[1]] === x || x === #1[[2]]) && TrueQ[#1[[3]]]) &
+                        ],
+                        assignment[X[[level]]] = FindMid[cfsl]
+                    ];
+				];
                  (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5982\:679c\:524dlevel\:7ef4\:7684\:8d4b\:503c\:4e0d\:51b2\:7a81\:ff0c\:9009\:62e9\:539f\:6765\:7684\:3002\:5426\:5219\:ff0c\:91cd\:65b0\:9009\:4e00\:4e2a\:ff0c\:5bf9\:5e94\:4f2a\:4ee3\:78019-10\:884c*)
                  (* Scan[If[M[[#]]!=0,Fnow[[#]]=M[[#]]>0,If[Length[F[[#]]]>1,If[F[[#,2]]>0,Fnow[[#]]=assignment[X[[level]]]>Flevel[[#]],Fnow[[#]]=assignment[X[[level]]]<Flevel[[#]]],Fnow[[#]]=((F[[#,1]]/.assignment)>0)]]&,levell[[level]]]; *)
                  Scan[If[M[[#]]!=0,Fnow[[#]]=M[[#]]>0,If[F[[#,1]]!=5,Fnow[[#]]=getFnow[#]]]&,levell[[level]]];
@@ -2468,7 +2494,84 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                       Clstatus[[levelcl[[level,i,2]]]]={Length[levelcl[[level,i,1]]],0}
                   ];
                   (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:9650\:5236\:524dlevel\:7ef4\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780114-19\:884c*)
-                  
+                    (*Ding: local search solver -- begin*)
+                    (*Print["BEGIN: mcsat-exLS"];*)
+                    (*Print["mcsat: ",assignment];*)
+                    maxlevel=Max[maxlevel,level];
+                    (*Print["cntAssign=",cntAssign,", Min=",Min[0.4*varnum,0.9*maxlevel]];*)
+                    (*Print["cntLS: ",cntLS,", maxCntLS: ",maxCntLS];*)
+                    cntAssign=level-1;
+                    If[Length[X]-2>cntAssign>Min[0.4*varnum,0.9*maxlevel](*&&cntLS<maxCntLS*)&&cntTLE<3,
+                        (*Print["mcsat-els"];*)
+                        (*cnt=1;*)
+                        (*fail={};*)
+                        (*completeAssignment = assignment;*)
+                        completeAssignment=<||>;
+                        If[cntAssign==varnum-1, 
+                            (* \:53ea\:67091\:4e2a\:672a\:8d4b\:503c\:53d8\:91cf: 1\:6b21\:4e0d\:6539\:53d8\:90e8\:5206\:8d4b\:503c\:7684LocalSearch *)
+                            Scan[(completeAssignment[#]=1)&,X[[cntAssign+1;;]]];
+                            (*Print["lsInit1: ",lsInit1];
+                            Print["assignment: ",assignment];*)
+                            If[Not[MemberQ[lsInit1,assignment]],
+                                AppendTo[lsInit1,assignment];
+                                (*Print["mcsat-els var: ",{Take[X,-(varnum-cntAssign)],Intersection[newVarList,Take[X,-(varnum-cntAssign)]]}];*)
+                                ansLS=TimeConstrained[
+                                    ELSSolver0[
+                                        F1/.Take[Normal[assignment],cntAssign],cnf,Take[X,-(varnum-cntAssign)],
+                                        newPolyList/.Take[Normal[assignment],cntAssign],newCnf,Intersection[newVarList,Take[X,-(varnum-cntAssign)]],
+                                        varInterval,1(*,maxCntLS,True*)
+                                    ],
+                                    1,{"unknown","ELS-TLE"}
+                                ];
+                                (*If[Length[ansLS]>=3,cntLS=ansLS[[3]]];*)
+                                (*Print["assignment: ",assignment];*)
+                                (*Print["completeAssignment: ",completeAssignment];*)
+                                (*Print["ansLS: ",ansLS];*)
+                                If[ansLS[[1]]=="sat",Return[{"sat","mcsat-ELS"}];(*cntLS=ansLS[[3]];*)];
+                                If[ansLS[[2]]=="ELS-TLE",cntTLE++;];
+                                (*Print["END: exLS"];*)
+                            ],
+                            (*\:591a\:4e2a\:672a\:8d4b\:503c\:53d8\:91cf: 3\:6b21\:4e0d\:6539\:53d8\:90e8\:5206\:8d4b\:503c\:7684LocalSearch *)
+                            Scan[(completeAssignment[#]=1)&,X[[cntAssign+1;;]]];
+                            (*Print["completeAssignment: ",completeAssignment];*)
+                            If[Not[MemberQ[lsInit1,{assignment,completeAssignment}]],
+                                AppendTo[lsInit1,{assignment,completeAssignment}];
+                                (*Print["ExtendedLS: ",{ F1/.Take[Normal[assignment],cntAssign],cnf,Take[X,-(varnum-cntAssign)],
+                                        newPolyList/.Take[Normal[assignment],cntAssign],newCnf,Intersection[newVarList,Take[X,-(varnum-cntAssign)]],
+                                        varInterval,1}];*)
+                                (*Print["mcsat-els var: ",{Take[X,-(varnum-cntAssign)],Intersection[newVarList,Take[X,-(varnum-cntAssign)]]}];*)
+                                ansLS=TimeConstrained[
+                                    ELSSolver0[
+                                        F1/.Take[Normal[assignment],cntAssign],cnf,Take[X,-(varnum-cntAssign)],
+                                        newPolyList/.Take[Normal[assignment],cntAssign],newCnf,Intersection[newVarList,Take[X,-(varnum-cntAssign)]],
+                                        varInterval,3(*,maxCntLS,True*)
+                                    ],
+                                    1,{"unknown","ELS-TLE"}
+                                ];
+                                (*If[Length[ansLS]>=3,cntLS=ansLS[[3]]];*)
+                                (*Print["ExtendedLS: ",{F1/.Take[Normal[assignment],cntAssign],cnf0,Take[X,-(varnum-cntAssign)],1,cntLS,maxCntLS}];*)
+                                If[ansLS[[1]]=="sat",Return[{"sat","mcsat-ELS"}];(*cntLS=ansLS[[3]];*)];
+                                If[ansLS[[2]]=="ELS-TLE",cntTLE++;];
+                                (*Print["ansLS: ",ansLS];*)
+                            ];
+                        ];
+                        (*Print[{cntLS,maxCntLS}];*)
+                        (*If[cntLS>maxCntLS,
+                            (*Print["CAD"];*)
+                            cad=GenericCylindricalDecomposition[And@@Table[Or@@Table[If[Clause[[i,j]]<0,F1[[-Clause[[i,j]]]]<0,F1[[Clause[[i,j]]]]>0],{j,Length[Clause[[i]]]}],{i,Length[Clause]}],X];
+                            (*Print[cad];*)
+                            If[Length[cad[[1]]]==0 && Length[cad[[2]]]==0 && cad=={False,False},
+                                Return[{"unsat","openCAD"}],
+                                (*Return[{"CAD: sat",FindInstance[cad[[1]],varList]}];*)
+                                Return[{"sat","openCAD"}];
+                            ];
+                        ];*)
+                        (*Ni:\:66f4\:65b0assignment\:540e\:9762\:51e0\:4f4d\:7684\:8d4b\:503c*)
+                        assignment=assignment/.newsolverx;
+                        (*Print[assignment,newsolverx,X[[cntAssign+1;;]]];*)
+                    ];
+                    (*Ding: local search solver -- end*)
+                    (*Print["END: mcsat-exLS"];*)
                   (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:9650\:5236\:524dlevel\:7ef4\:ff0c\:8fd0\:884c2d-ELS\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780114-19\:884c*)
              ,
              (*\:8fd9\:4e00\:5c42\:6709\:672a\:88ab\:6ee1\:8db3\:7684\:5b50\:53e5,tmpc\:662f\:5176\:4e2d\:672a\:77e5\:6587\:5b57\:4e2a\:6570\:6700\:5c11\:7684*)  
@@ -2559,94 +2662,8 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                        ]
                   ];
                   
-                  (*Ding: local search solver -- begin*)
-            (*Print["BEGIN: mcsat-exLS"];*)
-            (*Print["mcsat: ",assignment];*)
-            maxlevel=Max[maxlevel,level];
-            (*Print["cntAssign=",cntAssign,", Min=",Min[0.4*varnum,0.9*maxlevel]];*)
-            (*Print["cntLS: ",cntLS,", maxCntLS: ",maxCntLS];*)
-            cntAssign=level-1;
-            If[Length[X]-2>cntAssign>Min[0.4*varnum,0.9*maxlevel](*&&cntLS<maxCntLS*)&&cntTLE<3,
-                (*Print["mcsat-els"];*)
-                (*cnt=1;*)
-                (*fail={};*)
-                (*completeAssignment = assignment;*)
-                completeAssignment=<||>;
-                If[cntAssign==varnum-1, 
-                    (* \:53ea\:67091\:4e2a\:672a\:8d4b\:503c\:53d8\:91cf: 1\:6b21\:4e0d\:6539\:53d8\:90e8\:5206\:8d4b\:503c\:7684LocalSearch *)
-                    Scan[(completeAssignment[#]=1)&,X[[cntAssign+1;;]]];
-                    (*Print["lsInit1: ",lsInit1];
-                    Print["assignment: ",assignment];*)
-                    If[Not[MemberQ[lsInit1,assignment]],
-                        AppendTo[lsInit1,assignment];
-                        (*Print["mcsat-els var: ",{Take[X,-(varnum-cntAssign)],Intersection[newVarList,Take[X,-(varnum-cntAssign)]]}];*)
-                        ansLS=TimeConstrained[
-                            ELSSolver0[
-                                F1/.Take[Normal[assignment],cntAssign],cnf,Take[X,-(varnum-cntAssign)],
-                                newPolyList/.Take[Normal[assignment],cntAssign],newCnf,Intersection[newVarList,Take[X,-(varnum-cntAssign)]],
-                                varInterval,1(*,maxCntLS,True*)
-                            ],
-                            1,{"unknown","ELS-TLE"}
-                         ];
-                        (*If[Length[ansLS]>=3,cntLS=ansLS[[3]]];*)
-                        (*Print["assignment: ",assignment];*)
-                        (*Print["completeAssignment: ",completeAssignment];*)
-                        (*Print["ansLS: ",ansLS];*)
-                        If[ansLS[[1]]=="sat",Return[{"sat","mcsat-ELS"}];(*cntLS=ansLS[[3]];*)];
-                        If[ansLS[[2]]=="ELS-TLE",cntTLE++;];
-                        (*Print["END: exLS"];*)
-                    ],
-                    (*\:591a\:4e2a\:672a\:8d4b\:503c\:53d8\:91cf: 3\:6b21\:4e0d\:6539\:53d8\:90e8\:5206\:8d4b\:503c\:7684LocalSearch *)
-                    Scan[(completeAssignment[#]=1)&,X[[cntAssign+1;;]]];
-                    (*Print["completeAssignment: ",completeAssignment];*)
-                    If[Not[MemberQ[lsInit1,{assignment,completeAssignment}]],
-                        AppendTo[lsInit1,{assignment,completeAssignment}];
-                        (*Print["ExtendedLS: ",{ F1/.Take[Normal[assignment],cntAssign],cnf,Take[X,-(varnum-cntAssign)],
-                                newPolyList/.Take[Normal[assignment],cntAssign],newCnf,Intersection[newVarList,Take[X,-(varnum-cntAssign)]],
-                                varInterval,1}];*)
-                        (*Print["mcsat-els var: ",{Take[X,-(varnum-cntAssign)],Intersection[newVarList,Take[X,-(varnum-cntAssign)]]}];*)
-                        ansLS=TimeConstrained[
-                            ELSSolver0[
-                                F1/.Take[Normal[assignment],cntAssign],cnf,Take[X,-(varnum-cntAssign)],
-                                newPolyList/.Take[Normal[assignment],cntAssign],newCnf,Intersection[newVarList,Take[X,-(varnum-cntAssign)]],
-                                varInterval,3(*,maxCntLS,True*)
-                            ],
-                            1,{"unknown","ELS-TLE"}
-                         ];
-                        (*If[Length[ansLS]>=3,cntLS=ansLS[[3]]];*)
-                        (*Print["ExtendedLS: ",{F1/.Take[Normal[assignment],cntAssign],cnf0,Take[X,-(varnum-cntAssign)],1,cntLS,maxCntLS}];*)
-                        If[ansLS[[1]]=="sat",Return[{"sat","mcsat-ELS"}];(*cntLS=ansLS[[3]];*)];
-                        If[ansLS[[2]]=="ELS-TLE",cntTLE++;];
-                        (*Print["ansLS: ",ansLS];*)
-                    ];
-                ];
-                (*Print[{cntLS,maxCntLS}];*)
-                (*If[cntLS>maxCntLS,
-                    (*Print["CAD"];*)
-		            cad=GenericCylindricalDecomposition[And@@Table[Or@@Table[If[Clause[[i,j]]<0,F1[[-Clause[[i,j]]]]<0,F1[[Clause[[i,j]]]]>0],{j,Length[Clause[[i]]]}],{i,Length[Clause]}],X];
-                    (*Print[cad];*)
-                    If[Length[cad[[1]]]==0 && Length[cad[[2]]]==0 && cad=={False,False},
-                        Return[{"unsat","openCAD"}],
-                        (*Return[{"CAD: sat",FindInstance[cad[[1]],varList]}];*)
-                        Return[{"sat","openCAD"}];
-                    ];
-                ];*)
-            ];
-            If[SessionTime[]-time1>20 && cntLS>maxCntLS,
-                (*Print["Clause: ",Clause];
-                Print["CAD start: ",And@@Table[Or@@Table[If[Clause1[[i,j]]<0,polyList[[-Clause1[[i,j]]]]<0,polyList[[Clause1[[i,j]]]]>0],{j,Length[Clause1[[i]]]}],{i,Length[Clause1]}]];
-                Print["CAD var: ",varList];*)
-                cad=GenericCylindricalDecomposition[And@@Table[And@@Table[Or@@Table[If[Clause1[[i,j]]<0,polyList[[-Clause1[[i,j]]]]<0,polyList[[Clause1[[i,j]]]]>0],{j,Length[Clause1[[i]]]}],{i,Length[Clause1]}],{i,Length[Clause]}],varList];
-                (*Print[cad];*)
-                If[Length[cad[[1]]]==0 && Length[cad[[2]]]==0 && cad=={False,False},
-                    Return[{"unsat","openCAD"}],
-                    (*Return[{"CAD: sat",FindInstance[cad[[1]],varList]}];*)
-                    Return[{"sat","openCAD"}];
-                ];
-            ];
-            (*Ding: local search solver -- end*)
-            (*Print["END: mcsat-exLS"];*)
-            
+
+                  
                  (*\:8ba1\:7b97\:5f53\:524d\:5b50\:53e5*)
                  If[nowc>0,cc=levelc[[level,nowc,1]],cc=levelcl[[level,-nowc,1]]];
                  If[status==1,
@@ -2685,7 +2702,7 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                            conflict=Nothing;
                        ];
                        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:589e\:52a0\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780140\:884c*)  
-                       
+                       cntLS++;
                        (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:589e\:52a0\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780140\:884c*)   
                       (* cc=Flatten[{conflict,Map[Minus,cc]}];  *)
                       cc={Sequence@@Map[Minus,cc],conflict};
@@ -2708,11 +2725,22 @@ Module[{a,cc,i,j,xmap=<||>,fmap=<||>,F1=polyList,X=varList,F,Flevel,Fnow,conflic
                       Scan[If[#>0,++Cstatus[[#,2]];--Cstatus[[#,1]],++Clstatus[[-#,2]];--Clstatus[[-#,1]]]&,VC[[Sign[a],Abs[a]]]];
                       Scan[If[#>0,--Cstatus[[#,1]],--Clstatus[[-#,1]]]&,VC[[-Sign[a],Abs[a]]]]; *)
                   ]
-             ]
+             ];
         (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5f53\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:8fbe\:5230\:9608\:503c\:65f6\:ff0c\:8fd0\:884cOpenCAD\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780155-56\:884c*) 
-        
+            If[SessionTime[]-time1>20 && cntLS>maxCntLS,
+                (*Print["Clause: ",Clause];
+                Print["CAD start: ",And@@Table[Or@@Table[If[Clause1[[i,j]]<0,polyList[[-Clause1[[i,j]]]]<0,polyList[[Clause1[[i,j]]]]>0],{j,Length[Clause1[[i]]]}],{i,Length[Clause1]}]];
+                Print["CAD var: ",varList];*)
+                cad=GenericCylindricalDecomposition[And@@Table[And@@Table[Or@@Table[If[Clause1[[i,j]]<0,polyList[[-Clause1[[i,j]]]]<0,polyList[[Clause1[[i,j]]]]>0],{j,Length[Clause1[[i]]]}],{i,Length[Clause1]}],{i,Length[Clause]}],varList];
+                (*Print[cad];*)
+                If[Length[cad[[1]]]==0 && Length[cad[[2]]]==0 && cad=={False,False},
+                    Return[{"unsat","openCAD"}],
+                    (*Return[{"CAD: sat",FindInstance[cad[[1]],varList]}];*)
+                    Return[{"sat","openCAD"}];
+                ];
+            ];
         (*Ni: \:589e\:52a0\:4ee3\:7801\:ff0c\:5f53\:5931\:8d25\:5c1d\:8bd5\:6b21\:6570\:8fbe\:5230\:9608\:503c\:65f6\:ff0c\:8fd0\:884cOpenCAD\:3002\:5bf9\:5e94\:4f2a\:4ee3\:780155-56\:884c*)      
-        ]
+        ];
    ];
 
 
@@ -3013,7 +3041,7 @@ Module[{i, x, w, isAxis, x1, x2, isDir, var, ans,
 
 ELSSolver0[polyList_, cnf_, varList_, newPolyList_, newCnf_, newVarList_, varInterval_, lsLimit_(*,maxCntLS_,bool_*)]:=
 Module[{cnt=1,init,lsInit={},ans,cons,consZero,LenDenNum,lnum,varnum,deg,clauses},
-
+    (* Print["ELSSolver0: "]; *)
 	While[cnt<=lsLimit,
 		Which[cnt==1,
 			(*Print["ELS start: ",cnt];*)
@@ -3051,6 +3079,10 @@ Module[{cnt=1,init,lsInit={},ans,cons,consZero,LenDenNum,lnum,varnum,deg,clauses
 ];
 
 
+newsolverx=<||>;
+
+
+(*Ni\:4fee\:6539\:4e86\:8fd9\:4e2a\:51fd\:6570\:ff0c\:589e\:52a0\:4e00\:4e2a\:5168\:5c40\:53d8\:91cf\:7528\:6765\:8bb0\:5f55\:8d4b\:503c*)
 ELS0[x0_, polyList_, cnf_, varList_, newPolyList_, newCnf_, newVarList_, varInterval_(*, maxCntLS_, bool_*)]:=
 Module[{i, x, w, isAxis, x1, x2, isDir, var, clauses,
 		cnt=1,init,lsInit={},vars=Length[varList],varList2,varListLast,
@@ -3064,7 +3096,9 @@ Module[{i, x, w, isAxis, x1, x2, isDir, var, clauses,
 	
 	(*maxCntLS=2*Min[Length[polyList],Max[Exponent[(MonomialList[polyList]/.Association[Map[#->y&,varList]]),y]]]*vars;*)
 	(*Print["maxCntLS: ",maxCntLS];*)
+    (* Print["ELS: ",x0]; *)
 	x = x0;
+	newsolverx=x;
 	w = Association[Table[cnf[[i]] -> 1, {i, Length[cnf]}]];
 	(*Print["initial x: ", x];*)
 	
@@ -3112,20 +3146,20 @@ Module[{i, x, w, isAxis, x1, x2, isDir, var, clauses,
 		(*Print["celljump axis 1: ",isAxis,x1];*)
 		cntLS++;
 		If[isAxis&&Not[MemberQ[cycle,x1]],
-			AppendTo[cycle,x1]; x = x1,
+			AppendTo[cycle,x1]; x = x1; newsolverx=x (*Ni*),
 			w = UpdateWeight[polyList, cnf, varList, x, w];
 			{isDir, x1} = GradSearchAndApplyOp1[newPolyList,newCnf,newVarList, varInterval, x, w];  (* \:6cbf\:67d0\:4e9b\:65b9\:5411celljump 1 *)
 			(*Print["celljump direction 1: ",isDir,x1];*)
 			cntLS++;
 			If[isDir&&Not[MemberQ[cycle,x1]],
-				(*AppendTo[cycle,x1];*) x = x1,
+				(*AppendTo[cycle,x1];*) x = x1; newsolverx=x (*Ni*),
 				w = UpdateWeight[polyList, cnf, varList, x, w];
 				{isAxis, x1} = SearchAndApplyOp2[polyList, cnf, varList, x, w]; (* \:6cbf\:5750\:6807\:8f74celljump 2 *)
 				If[mcsat,Return[{"sat","ELS"(*,cntLS*)}]];
 				cntLS++;
 				(*Print["celljump axis 2: ",isAxis,x1];*)
 				If[isAxis&&Not[MemberQ[cycle,x1]], 
-				    AppendTo[cycle,x1]; x = x1, 
+				    AppendTo[cycle,x1]; x = x1; newsolverx=x (*Ni*), 
 				    w = UpdateWeight[polyList, cnf, varList, x, w];
 				    (*Print["w: ",w];*)
                     {isDir, x1} = GradSearchAndApplyOp2[polyList, cnf, varList, x, w]; (* \:6cbf\:67d0\:4e9b\:65b9\:5411celljump 2 *)
