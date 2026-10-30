@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "measurement_catalog": "data/measurements.json",
+  "result_catalog": "data/index.json",
+  "source_code_files": [
+    {
+      "path": "components/hybrid/PaperSolvers.wl",
+      "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+      "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "components/hybrid/WolframLS.wl",
+      "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+      "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "components/MCSATCore.wl",
+      "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+      "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "components/local_search/PaperSolvers.wl",
+      "measured_sha256": "1d74324060a7fa8c3d9c2f7c11185c093c52a0c359c7f1e0b115ccccb1b7ae75",
+      "public_sha256": "c294b330094f32e851bbeb23b5d911dbdfd96d4bb85fb3f2d78273aa72bc9541",
+      "adaptation": {
+        "PaperSolvers`": "TwoDLSCore`",
+        "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+        "PaperWolframLS`": "TwoDLSWolframLS`"
+      },
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "components/local_search/LocalSearchSupport.wl",
+      "measured_sha256": "1e5d5d6884f9c675153f87a6ec105aab89b7a8692e8a927b523ed4bc69159f20",
+      "public_sha256": "16d6a6ba90dba0cd281a24fdf431a8112d6d2b555a0af1ab6b5e25d37b1e39b8",
+      "adaptation": {
+        "PaperSolvers`": "TwoDLSCore`",
+        "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+        "PaperWolframLS`": "TwoDLSWolframLS`"
+      },
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "components/local_search/WolframLS.wl",
+      "measured_sha256": "6ee3fcc16038bed4efdd5a3f30b13df97bcf94e4eeb77c55bfeebc7600a2f1d9",
+      "public_sha256": "683040ad1bf951a5c77b2804cfc4be7aaaaa3afcbc940460fc9f004f4a609fcb",
+      "adaptation": {
+        "PaperSolvers`": "TwoDLSCore`",
+        "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+        "PaperWolframLS`": "TwoDLSWolframLS`"
+      },
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "config/run_config.json",
+      "measured_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "public_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "config/2dls_config.json",
+      "measured_sha256": "895ac10fe6a45ed9f902b9127da5e575e56e5849341848433cf2f108202c815f",
+      "public_sha256": "895ac10fe6a45ed9f902b9127da5e575e56e5849341848433cf2f108202c815f",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "runner/protocols/opencad.py",
+      "measured_path": "runner/opencad.py",
+      "measured_sha256": "656ff72625d49fd7c9788d51223de2d6e5a6067bac6d4cb00a6bbcceacc4644b",
+      "public_sha256": "cd5e8e8ebd0d13e11a9e2dc84a174b2d36bbe63f1a9035073b42baa5704f818c",
+      "adaptation": [
+        {
+          "original": "    manifest = ROOT / 'benchmarks/experiment_all.jsonl'\n",
+          "public": "    manifest = ROOT / 'benchmarks/experiment_default.jsonl'\n",
+          "occurrences": 1
+        },
+        {
+          "original": "        if row['case_id'] in seen or row['benchmark_group'] not in GROUPS or row['expected_status'] not in {'sat', 'unsat'}:\n",
+          "public": "        if row['case_id'] in seen or row['benchmark_group'] not in GROUPS or row['expected_status'] not in {'sat', 'unsat', 'unknown'}:\n",
+          "occurrences": 1
+        },
+        {
+          "original": "        matches = status == case['expected_status']\n        validation['reference_comparison'] = 'matches' if matches else 'conflict'\n        if not matches:\n            effective = 'conflict'\n",
+          "public": "        if case['expected_status'] in {'sat', 'unsat'}:\n            matches = status == case['expected_status']\n            validation['reference_comparison'] = 'matches' if matches else 'conflict'\n            if not matches:\n                effective = 'conflict'\n        else:\n            validation['reference_comparison'] = 'reference_unknown'\n",
+          "occurrences": 1
+        },
+        {
+          "original": "    run_p.add_argument('--timeout', type=float, default=1200.)\n",
+          "public": "    run_p.add_argument('--timeout', type=float, default=60.)\n",
+          "occurrences": 1
+        },
+        {
+          "original": "from process_control import WorkerProcess, memory_available_mb, process_identity, same_process_alive",
+          "public": "from .opencad_process import WorkerProcess, memory_available_mb, process_identity, same_process_alive",
+          "occurrences": 1
+        },
+        {
+          "original": "ROOT = Path(__file__).resolve().parents[1]",
+          "public": "ROOT = Path(__file__).resolve().parents[2]",
+          "occurrences": 1
+        },
+        {
+          "original": "ROOT / 'runner/process_control.py'",
+          "public": "ROOT / 'runner/protocols/opencad_process.py'",
+          "occurrences": 1
+        },
+        {
+          "original": "ROOT / 'wolfram/OpenCADWorker.wls'",
+          "public": "ROOT / 'components/OpenCADWorker.wls'",
+          "occurrences": 2
+        }
+      ],
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "runner/protocols/opencad_process.py",
+      "measured_path": "runner/process_control.py",
+      "measured_sha256": "db12eedd689d51e16109ee902967c849b169dd05842da9a01163225621b641ed",
+      "public_sha256": "db12eedd689d51e16109ee902967c849b169dd05842da9a01163225621b641ed",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "components/OpenCADWorker.wls",
+      "measured_path": "wolfram/OpenCADWorker.wls",
+      "measured_sha256": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149",
+      "public_sha256": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true
+    },
+    {
+      "path": "solvers/paper solvers/HELMS.wl",
+      "measured_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+      "public_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true,
+      "matching_measurement_ids": [
+        "m-25c63f5709e6abba",
+        "m-4ab3bcf96fc0c488",
+        "m-c12e5a4be224cefc",
+        "m-f0ec6ec9aa3468d7"
+      ]
+    },
+    {
+      "path": "config/helms_config.json",
+      "measured_sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263",
+      "public_sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263",
+      "adaptation": "none",
+      "inverse_mapping_restores_original_bytes": true,
+      "matching_measurement_ids": [
+        "m-25c63f5709e6abba",
+        "m-4ab3bcf96fc0c488",
+        "m-c12e5a4be224cefc",
+        "m-f0ec6ec9aa3468d7"
+      ]
+    }
+  ],
+  "supplied_source_code_unchanged": true,
+  "all_table_entries_measure_current_tools": false
+}

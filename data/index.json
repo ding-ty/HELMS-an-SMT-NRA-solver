@@ -1,0 +1,83 @@
+{
+  "schema_version": 4,
+  "benchmarks": {
+    "SMTLIB": {
+      "results": "SMTLIB/results.csv",
+      "overview": "SMTLIB/README.md",
+      "observations": 20296,
+      "distinct_instances": 2139,
+      "instances": "SMTLIB/instances.csv",
+      "input_representations": "SMTLIB/input_representations.csv",
+      "solver_files": {
+        "HELMS": "SMTLIB/solvers/HELMS.csv",
+        "2D-LS": "SMTLIB/solvers/2D-LS.csv",
+        "V1": "SMTLIB/solvers/V1.csv",
+        "V2": "SMTLIB/solvers/V2.csv",
+        "V3": "SMTLIB/solvers/V3.csv",
+        "V4": "SMTLIB/solvers/V4.csv",
+        "V5": "SMTLIB/solvers/V5.csv",
+        "LS-WL": "SMTLIB/solvers/LS-WL.csv",
+        "LiMbS": "SMTLIB/solvers/LiMbS.csv",
+        "OpenCAD": "SMTLIB/solvers/OpenCAD.csv"
+      }
+    },
+    "RandInst": {
+      "results": "RandInst/results.csv",
+      "overview": "RandInst/README.md",
+      "observations": 1000,
+      "distinct_instances": 100,
+      "instances": "RandInst/instances.csv",
+      "input_representations": "RandInst/input_representations.csv",
+      "solver_files": {
+        "HELMS": "RandInst/solvers/HELMS.csv",
+        "2D-LS": "RandInst/solvers/2D-LS.csv",
+        "V1": "RandInst/solvers/V1.csv",
+        "V2": "RandInst/solvers/V2.csv",
+        "V3": "RandInst/solvers/V3.csv",
+        "V4": "RandInst/solvers/V4.csv",
+        "V5": "RandInst/solvers/V5.csv",
+        "LS-WL": "RandInst/solvers/LS-WL.csv",
+        "LiMbS": "RandInst/solvers/LiMbS.csv",
+        "OpenCAD": "RandInst/solvers/OpenCAD.csv"
+      }
+    },
+    "SpecInst": {
+      "results": "SpecInst/results.csv",
+      "overview": "SpecInst/README.md",
+      "observations": 182,
+      "distinct_instances": 21,
+      "instances": "SpecInst/instances.csv",
+      "input_representations": "SpecInst/input_representations.csv",
+      "solver_files": {
+        "HELMS": "SpecInst/solvers/HELMS.csv",
+        "2D-LS": "SpecInst/solvers/2D-LS.csv",
+        "V1": "SpecInst/solvers/V1.csv",
+        "V2": "SpecInst/solvers/V2.csv",
+        "V3": "SpecInst/solvers/V3.csv",
+        "V4": "SpecInst/solvers/V4.csv",
+        "V5": "SpecInst/solvers/V5.csv",
+        "LS-WL": "SpecInst/solvers/LS-WL.csv",
+        "LiMbS": "SpecInst/solvers/LiMbS.csv",
+        "OpenCAD": "SpecInst/solvers/OpenCAD.csv"
+      }
+    }
+  },
+  "summary_file": "summary.csv",
+  "applicability_file": "applicability.csv",
+  "measurements": "measurements.json",
+  "provenance": "provenance.jsonl",
+  "source_tables": "sources.json",
+  "instances": "instances.csv",
+  "input_representations": "input_representations.csv",
+  "evidence_catalog": "evidence/index.json",
+  "reporting_limit_seconds": 60,
+  "reporting_field": "within_60s",
+  "counts": {
+    "observations": 21478,
+    "not_applicable": 1122,
+    "distinct_instances": 2260,
+    "measurement_profiles": 39,
+    "methods": 10,
+    "input_representations": 2349
+  }
+}

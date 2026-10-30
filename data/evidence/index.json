@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "archives": [
+    {
+      "evidence_id": "ev-e9706642b0cfe708",
+      "path": "data/evidence/e9706642b0cfe708.tar.xz",
+      "bytes": 82784536,
+      "sha256": "e9706642b0cfe708df63ab1938dde98642f39fc9cd64b63a07ff420614d6de33"
+    },
+    {
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "path": "data/evidence/769c58c2f7dc0958.tar.gz",
+      "bytes": 10065067,
+      "sha256": "769c58c2f7dc095845dd23e0041028772731dbe08935d1926f586d4fab316e99"
+    },
+    {
+      "evidence_id": "ev-f461096c1a5adbc5",
+      "path": "data/evidence/f461096c1a5adbc5.tar.gz",
+      "bytes": 6877033,
+      "sha256": "f461096c1a5adbc50b5574b7040d0ab10d94805d1612cefb7bc5f97d45ab0219"
+    },
+    {
+      "evidence_id": "ev-ecf70e871c298514",
+      "path": "data/evidence/ecf70e871c298514.tar.gz",
+      "bytes": 2860891,
+      "sha256": "ecf70e871c298514bf3bd201be91a44ad186f9007ff461a84c4d6d34cc533b5e"
+    },
+    {
+      "evidence_id": "ev-89288db8ef3ab4a5",
+      "path": "data/evidence/ubuntu-limbs.tar.gz",
+      "bytes": 13530920,
+      "sha256": "89288db8ef3ab4a5fde873e058fef12182e11f9be543666e1afd52f55f410553",
+      "observations": 2260,
+      "members_index_path": "data/evidence/ubuntu-limbs.members.sha256.json.gz",
+      "source_map_path": "data/evidence/ubuntu-limbs.source-map.json.gz"
+    }
+  ],
+  "original_record_selectors_path": "data/evidence/main_original_evidence_selectors.csv.gz",
+  "original_members_index_path": "data/evidence/main_original_evidence_members.json.gz"
+}

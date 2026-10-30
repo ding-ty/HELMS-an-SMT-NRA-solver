@@ -1,0 +1,18 @@
+{
+  "protocol": "independent_OpenCAD_v1",
+  "seed": 314159,
+  "timeout_seconds": 60.0,
+  "startup_grace_seconds": 180.0,
+  "watchdog_grace_seconds": 5.0,
+  "finalization_grace_seconds": 60.0,
+  "verification_budget_seconds": 30.0,
+  "job_private_commit_limit_bytes": 8589934592,
+  "reserve_commit_mb": 1024.0,
+  "host_guard": "available_system_commit;physical_low_is_warning_only",
+  "cpu_index": 0,
+  "max_extra_precision": "Infinity",
+  "input_policy": "original_exact_CNF_and_manifest_variable_order;no_LS_or_MCSAT_preprocessing;no_reference_answer_in_request",
+  "decision_policy": "GenericCylindricalDecomposition;FindInstance_only_on_returned_cell;exact_SAT_validation",
+  "timing_basis": "full_1200_or_declared_budget_per_attempt;startup_and_verification_separate;cell_witness_extraction_included",
+  "selection_policy": "all_final_outcomes_retained;only_unfinalized_attempts_may_be_recovered;no_best_of_retries"
+}

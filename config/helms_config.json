@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "profile": "helms_independent_exact_v2",
+  "worker": {
+    "max_restart_stage1": 1,
+    "max_restart_stage2": 3,
+    "max_jump_multiplier": 100000,
+    "random_direction_count": 6,
+    "open_cad_threshold_multiplier": 0.1,
+    "open_cad_min_stage2_seconds": 20,
+    "open_cad_min_degree_exclusive": 2,
+    "open_cad_unit_cnf_stage2_seconds": 20,
+    "l2o_delta": 1,
+    "weight_decrease_probability": 0.003,
+    "engineering_optimizations": true,
+    "cache_enabled": true,
+    "cache_max_entries": 20000,
+    "require_exact_sat_model": true,
+    "engineering_revision": "shared-exact-v2",
+    "local_candidate_seconds": 2,
+    "local_assignment_bit_limit": 4096,
+    "local_stagnation_jump_limit": 64,
+    "local_sector_policy": "alternating",
+    "local_full_plane_check": true,
+    "local_search_revision": "primitive-rational-residual-plane-v5",
+    "helms_revision": "independent-helms-v2"
+  }
+}

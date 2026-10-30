@@ -1,0 +1,1359 @@
+{
+  "schema_version": 1,
+  "paper_sha256": "632e604c0c2461ccde127059dfed2020f095ea0caf3f557fbdedf5f90a90c597",
+  "reporting_limit_seconds": 60,
+  "case_counts": {
+    "SMTLIB": 2139,
+    "RandInst": 100,
+    "SpecInst": 21
+  },
+  "measurement_ids": [
+    "m-0f89814b0f214526",
+    "m-15e498edc5dcade9",
+    "m-1a1f726a888d499a",
+    "m-1ac85b8d2cf32adc",
+    "m-1c93b179bd8219cc",
+    "m-2377c4cdf9c35cfb",
+    "m-25b50a5204a5c148",
+    "m-25c63f5709e6abba",
+    "m-2d5c683d3a8ad810",
+    "m-2f30a8369a8a5b5c",
+    "m-2f8b0273ee192817",
+    "m-3e4150633ec96b54",
+    "m-4ab3bcf96fc0c488",
+    "m-4e76e3c021d36eb8",
+    "m-4fc4e78f9cac510c",
+    "m-58908efa5b13011c",
+    "m-65657da1c6fc7518",
+    "m-69b604b6435860e8",
+    "m-745afcffc97a050c",
+    "m-86d37217f9de75d5",
+    "m-8b255e04caff6cc3",
+    "m-930f652d51474c67",
+    "m-93274a0c99eef521",
+    "m-9ec2546860ffcecf",
+    "m-a4693bf4f5736f7a",
+    "m-a5c9934fd429eceb",
+    "m-a7ed5e918bad9bd0",
+    "m-af24b5314b1721ef",
+    "m-b06eca10a9cbd269",
+    "m-b090f8fb7d36daa6",
+    "m-b2bef94eb7374ae2",
+    "m-b31a7fec16ebddee",
+    "m-ba076dcde847a026",
+    "m-c12e5a4be224cefc",
+    "m-cd207e558ce45922",
+    "m-d84291b728573f44",
+    "m-e7b31362923622da",
+    "m-eb79dde27a70902c",
+    "m-f0ec6ec9aa3468d7"
+  ],
+  "methods": [
+    "HELMS",
+    "2D-LS",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "LS-WL",
+    "LiMbS",
+    "OpenCAD"
+  ],
+  "expected_table_cells": [
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 1513
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 1524
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 1547
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "LS-WL",
+      "value": null
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "LiMbS",
+      "value": 574
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 578
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "LS-WL",
+      "value": 1513
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "LiMbS",
+      "value": 2098
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 2125
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 100
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 57
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 100
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 4
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 7
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 7
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "LS-WL",
+      "value": null
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "LiMbS",
+      "value": 12
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 10
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "LS-WL",
+      "value": 4
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "LiMbS",
+      "value": 19
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 17
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 1617
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 1588
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 1654
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "LS-WL",
+      "value": null
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "LiMbS",
+      "value": 586
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 588
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "LS-WL",
+      "value": 1617
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "LiMbS",
+      "value": 2174
+    },
+    {
+      "table": "tab:3bench",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 2242
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 1546
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 1524
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "OpenCAD",
+      "value": 1544
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 1547
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "2D-LS",
+      "value": null
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "LiMbS",
+      "value": 574
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "OpenCAD",
+      "value": 577
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 578
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "2D-LS",
+      "value": 1546
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "LiMbS",
+      "value": 2098
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "OpenCAD",
+      "value": 2121
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 2125
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 100
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 57
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "OpenCAD",
+      "value": 0
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 100
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 7
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 7
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "OpenCAD",
+      "value": 2
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 7
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "2D-LS",
+      "value": null
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "LiMbS",
+      "value": 12
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "OpenCAD",
+      "value": 8
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 10
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "2D-LS",
+      "value": 7
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "LiMbS",
+      "value": 19
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "OpenCAD",
+      "value": 10
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 17
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 1653
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "LiMbS",
+      "value": 1588
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "OpenCAD",
+      "value": 1546
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 1654
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "2D-LS",
+      "value": null
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "LiMbS",
+      "value": 586
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "OpenCAD",
+      "value": 585
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 588
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "2D-LS",
+      "value": 1653
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "LiMbS",
+      "value": 2174
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "OpenCAD",
+      "value": 2131
+    },
+    {
+      "table": "tab:components",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 2242
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 1513
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 1546
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 100
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 100
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 4
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 7
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "LS-WL",
+      "value": 1617
+    },
+    {
+      "table": "tab:2dls",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "2D-LS",
+      "value": 1653
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "Stage1",
+      "value": 1546
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "Stage2",
+      "value": 1
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "Stage3",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 1547
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "V1",
+      "value": 1546
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "V2",
+      "value": 1546
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "V3",
+      "value": 1546
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "V4",
+      "value": 1547
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "SAT",
+      "method": "V5",
+      "value": 1546
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "Stage1",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "Stage2",
+      "value": 573
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "Stage3",
+      "value": 5
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 578
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "V1",
+      "value": 575
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "V2",
+      "value": 577
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "V3",
+      "value": 574
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "V4",
+      "value": 576
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "UNSAT",
+      "method": "V5",
+      "value": 575
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "Stage1",
+      "value": 1546
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "Stage2",
+      "value": 574
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "Stage3",
+      "value": 5
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 2125
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "V1",
+      "value": 2121
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "V2",
+      "value": 2123
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "V3",
+      "value": 2120
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "V4",
+      "value": 2123
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SMTLIB",
+      "answer": "ALL",
+      "method": "V5",
+      "value": 2121
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "Stage1",
+      "value": 100
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "Stage2",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "Stage3",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 100
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "V1",
+      "value": 100
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "V2",
+      "value": 100
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "V3",
+      "value": 100
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "V4",
+      "value": 15
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "RandInst",
+      "answer": "SAT",
+      "method": "V5",
+      "value": 100
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "Stage1",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "Stage2",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "Stage3",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "V1",
+      "value": 5
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "V2",
+      "value": 4
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "V3",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "V4",
+      "value": 5
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "SAT",
+      "method": "V5",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "Stage1",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "Stage2",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "Stage3",
+      "value": 3
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 10
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "V1",
+      "value": 11
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "V2",
+      "value": 8
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "V3",
+      "value": 9
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "V4",
+      "value": 13
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "UNSAT",
+      "method": "V5",
+      "value": 11
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "Stage1",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "Stage2",
+      "value": 7
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "Stage3",
+      "value": 3
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 17
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "V1",
+      "value": 16
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "V2",
+      "value": 12
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "V3",
+      "value": 16
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "V4",
+      "value": 18
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "SpecInst",
+      "answer": "ALL",
+      "method": "V5",
+      "value": 18
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "Stage1",
+      "value": 1653
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "Stage2",
+      "value": 1
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "Stage3",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "HELMS",
+      "value": 1654
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "V1",
+      "value": 1651
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "V2",
+      "value": 1650
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "V3",
+      "value": 1653
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "V4",
+      "value": 1567
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "SAT",
+      "method": "V5",
+      "value": 1653
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "Stage1",
+      "value": 0
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "Stage2",
+      "value": 580
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "Stage3",
+      "value": 8
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "HELMS",
+      "value": 588
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "V1",
+      "value": 586
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "V2",
+      "value": 585
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "V3",
+      "value": 583
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "V4",
+      "value": 589
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "UNSAT",
+      "method": "V5",
+      "value": 586
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "Stage1",
+      "value": 1653
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "Stage2",
+      "value": 581
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "Stage3",
+      "value": 8
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "HELMS",
+      "value": 2242
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "V1",
+      "value": 2237
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "V2",
+      "value": 2235
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "V3",
+      "value": 2236
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "V4",
+      "value": 2156
+    },
+    {
+      "table": "tab:phase",
+      "benchmark": "Total",
+      "answer": "ALL",
+      "method": "V5",
+      "value": 2239
+    }
+  ],
+  "public_solver_files": {
+    "solvers/baseline solvers/LiMbS.wl": {
+      "bytes": 32204,
+      "sha256": "450699e092757f2f4d61b2ad9b7205e8ed5fc054be1ebf4c62bfe614bf363bde"
+    },
+    "solvers/baseline solvers/LSwolfram.wl": {
+      "bytes": 1415,
+      "sha256": "93de61ff5a34779270baa56879c9ee281477a215e8a63c87355a09a28bf2885a"
+    },
+    "solvers/paper solvers/2DLS.wl": {
+      "bytes": 1283,
+      "sha256": "97b3b10e8816eb0dc1543eab1905da8f91caa1682d36ccccdbaaaecfd215dbc8"
+    },
+    "solvers/paper solvers/HELMS.wl": {
+      "bytes": 95768,
+      "sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c"
+    },
+    "solvers/paper solvers/V1.wl": {
+      "bytes": 1195,
+      "sha256": "b6b08dbf419e63a5f7df04fe4bc0e71b12702ca60bc7d69d5f3a21a6c271c6e1"
+    },
+    "solvers/paper solvers/V2.wl": {
+      "bytes": 1195,
+      "sha256": "0b313b6d738df40e2893f3d52a78355ec4c79dd45be4aef392e8c666ddeaa1d0"
+    },
+    "solvers/paper solvers/V3.wl": {
+      "bytes": 1195,
+      "sha256": "af1089c3d3f6d881d543b51dc9e473e0d19bc138c95124ba1144499657890a72"
+    },
+    "solvers/paper solvers/V4.wl": {
+      "bytes": 1195,
+      "sha256": "2fa32c330c993e1b5d870a76da872d813870dd9f51257bdfbe66ed15bcec913d"
+    },
+    "solvers/paper solvers/V5.wl": {
+      "bytes": 1195,
+      "sha256": "cc6e5063238aed252eb51a72a7f96f80a366e278ddcff33b4518834727a89383"
+    },
+    "components/Ablations.wl": {
+      "bytes": 680,
+      "sha256": "648642b25eba4bfb264c853ed39a2f233bd8efe81b06f11e87d9bad68a414fac"
+    },
+    "components/BaselineWorker.wls": {
+      "bytes": 14596,
+      "sha256": "24739db5064abcee2c12abe23f5c37583ebdd748162a977cc35f0c5cd18a2321"
+    },
+    "components/entrypoint.wls": {
+      "bytes": 9751,
+      "sha256": "71aa1037d57dda542abe2522b9a78d882b57260f90e16b911d3142cfbeec1838"
+    },
+    "components/hybrid/PaperSolvers.wl": {
+      "bytes": 21551,
+      "sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900"
+    },
+    "components/hybrid/WolframLS.wl": {
+      "bytes": 33920,
+      "sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6"
+    },
+    "components/local_search/LocalSearchSupport.wl": {
+      "bytes": 15022,
+      "sha256": "16d6a6ba90dba0cd281a24fdf431a8112d6d2b555a0af1ab6b5e25d37b1e39b8"
+    },
+    "components/local_search/PaperSolvers.wl": {
+      "bytes": 39766,
+      "sha256": "c294b330094f32e851bbeb23b5d911dbdfd96d4bb85fb3f2d78273aa72bc9541"
+    },
+    "components/local_search/WolframLS.wl": {
+      "bytes": 33970,
+      "sha256": "683040ad1bf951a5c77b2804cfc4be7aaaaa3afcbc940460fc9f004f4a609fcb"
+    },
+    "components/LocalSearchSupport.wl": {
+      "bytes": 180,
+      "sha256": "8be6e181197860a0f8e808aeb6c5e863123bf9dcf99f7975d133cb779c200b7d"
+    },
+    "components/MCSATCore.wl": {
+      "bytes": 32422,
+      "sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30"
+    },
+    "components/OpenCADWorker.wls": {
+      "bytes": 10372,
+      "sha256": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149"
+    },
+    "components/SolverAPI.wl": {
+      "bytes": 5582,
+      "sha256": "3d606f882c12049ac99059fab996e202c259745a3a2508dca4f0885af6b57f48"
+    },
+    "components/SolverCore.wl": {
+      "bytes": 506,
+      "sha256": "106fc04a5fc2800836cb1a47ecc859fee64b23ed8eb50c251fcd477b69eef199"
+    },
+    "components/TwoDLSCore.wl": {
+      "bytes": 491,
+      "sha256": "67327131dab6bfcafbcd61358d6a166fd374dcdd2711e631cddf4f8080c52437"
+    },
+    "components/WolframLSCore.wl": {
+      "bytes": 179,
+      "sha256": "124d99c7f274b88875e6bea82771dc180e44b1f600aab0f69ccf6702dcf643eb"
+    },
+    "config/2dls_config.json": {
+      "bytes": 876,
+      "sha256": "895ac10fe6a45ed9f902b9127da5e575e56e5849341848433cf2f108202c815f"
+    },
+    "config/helms_config.json": {
+      "bytes": 956,
+      "sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263"
+    },
+    "config/lswl_config.json": {
+      "bytes": 666,
+      "sha256": "5d48e3a2b476c4986f34ce896b925f453c88c87050c496b70628660af7e26fa7"
+    },
+    "config/opencad_config.json": {
+      "bytes": 940,
+      "sha256": "aa71586973332828a30498f83830057fd2dd0a75ca53cfe244ff58c611170903"
+    },
+    "config/run_config.json": {
+      "bytes": 665,
+      "sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07"
+    }
+  }
+}

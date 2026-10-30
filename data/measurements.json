@@ -1,0 +1,3093 @@
+{
+  "schema_version": 2,
+  "profiles": {
+    "m-b06eca10a9cbd269": {
+      "benchmark": "SMTLIB",
+      "solver": "2D-LS",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SMTLIB/2DLS/run"
+      ],
+      "raw_results_member": "records/SMTLIB/2DLS/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SMTLIB/2DLS/record_index.json",
+      "run_plan_member": "records/SMTLIB/2DLS/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/2dls_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 64,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v2",
+        "ls_wl_restarts": 8,
+        "standalone_full_plane_check": true,
+        "local_candidate_seconds": 2,
+        "local_assignment_bit_limit": 4096,
+        "local_stagnation_jump_limit": 64,
+        "local_sector_policy": "alternating"
+      },
+      "recorded_configuration_sha256": "895ac10fe6a45ed9f902b9127da5e575e56e5849341848433cf2f108202c815f",
+      "recorded_implementation": "components/local_search/",
+      "recorded_source_identity": [
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/PaperSolvers.wl",
+          "measured_sha256": "1d74324060a7fa8c3d9c2f7c11185c093c52a0c359c7f1e0b115ccccb1b7ae75",
+          "public_sha256": "c294b330094f32e851bbeb23b5d911dbdfd96d4bb85fb3f2d78273aa72bc9541",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/LocalSearchSupport.wl",
+          "measured_sha256": "1e5d5d6884f9c675153f87a6ec105aab89b7a8692e8a927b523ed4bc69159f20",
+          "public_sha256": "16d6a6ba90dba0cd281a24fdf431a8112d6d2b555a0af1ab6b5e25d37b1e39b8",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/WolframLS.wl",
+          "measured_sha256": "6ee3fcc16038bed4efdd5a3f30b13df97bcf94e4eeb77c55bfeebc7600a2f1d9",
+          "public_sha256": "683040ad1bf951a5c77b2804cfc4be7aaaaa3afcbc940460fc9f004f4a609fcb",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "38783f87c2f0ae99a681736fff773a79cc8f6595da7642ce2ec92f1c4c2d1d32",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "recorded_search_round_limit": 64,
+      "standalone_full_residual_plane_check": true,
+      "recorded_local_search_revision": "primitive-rational-residual-plane-v5",
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-b06eca10a9cbd269",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-2377c4cdf9c35cfb": {
+      "benchmark": "SMTLIB",
+      "solver": "V1",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "expanded/common/SMTLIB/framework"
+      ],
+      "raw_results_member": "expanded/common/SMTLIB/framework/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "expanded/common/SMTLIB/framework/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": null,
+      "aggregate_memory_limit_bytes": 34359738368,
+      "max_workers": 4,
+      "recorded_protocol": "adaptive-windows-job-v3",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "493a81f5dc7d9c4ee716e3a0e2304f51f866d0f12b9eb3e83a7618e6884e9a14",
+      "recorded_resource_policy": {
+        "revision": "adaptive-windows-job-v3",
+        "max_workers": 4,
+        "reserve_ram_gib": 2.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 0.75,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.5,
+        "max_resource_retries": 1,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "shared-job-private-commit-hard-limit-dynamic-notifications-exclusive-retry",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "resource_ceiling": {
+          "commit_budget_bytes": 34359738368,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 13958643712,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 4,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-2377c4cdf9c35cfb",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-9ec2546860ffcecf": {
+      "benchmark": "SMTLIB",
+      "solver": "V2",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "expanded/common/SMTLIB/framework"
+      ],
+      "raw_results_member": "expanded/common/SMTLIB/framework/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "expanded/common/SMTLIB/framework/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": null,
+      "aggregate_memory_limit_bytes": 34359738368,
+      "max_workers": 4,
+      "recorded_protocol": "adaptive-windows-job-v3",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "493a81f5dc7d9c4ee716e3a0e2304f51f866d0f12b9eb3e83a7618e6884e9a14",
+      "recorded_resource_policy": {
+        "revision": "adaptive-windows-job-v3",
+        "max_workers": 4,
+        "reserve_ram_gib": 2.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 0.75,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.5,
+        "max_resource_retries": 1,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "shared-job-private-commit-hard-limit-dynamic-notifications-exclusive-retry",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "resource_ceiling": {
+          "commit_budget_bytes": 34359738368,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 13958643712,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 4,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-9ec2546860ffcecf",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-cd207e558ce45922": {
+      "benchmark": "SMTLIB",
+      "solver": "V3",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "expanded/common/SMTLIB/framework"
+      ],
+      "raw_results_member": "expanded/common/SMTLIB/framework/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "expanded/common/SMTLIB/framework/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": null,
+      "aggregate_memory_limit_bytes": 34359738368,
+      "max_workers": 4,
+      "recorded_protocol": "adaptive-windows-job-v3",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "493a81f5dc7d9c4ee716e3a0e2304f51f866d0f12b9eb3e83a7618e6884e9a14",
+      "recorded_resource_policy": {
+        "revision": "adaptive-windows-job-v3",
+        "max_workers": 4,
+        "reserve_ram_gib": 2.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 0.75,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.5,
+        "max_resource_retries": 1,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "shared-job-private-commit-hard-limit-dynamic-notifications-exclusive-retry",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "resource_ceiling": {
+          "commit_budget_bytes": 34359738368,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 13958643712,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 4,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-cd207e558ce45922",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-b31a7fec16ebddee": {
+      "benchmark": "SMTLIB",
+      "solver": "V4",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "expanded/common/SMTLIB/framework"
+      ],
+      "raw_results_member": "expanded/common/SMTLIB/framework/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "expanded/common/SMTLIB/framework/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": null,
+      "aggregate_memory_limit_bytes": 34359738368,
+      "max_workers": 4,
+      "recorded_protocol": "adaptive-windows-job-v3",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "493a81f5dc7d9c4ee716e3a0e2304f51f866d0f12b9eb3e83a7618e6884e9a14",
+      "recorded_resource_policy": {
+        "revision": "adaptive-windows-job-v3",
+        "max_workers": 4,
+        "reserve_ram_gib": 2.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 0.75,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.5,
+        "max_resource_retries": 1,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "shared-job-private-commit-hard-limit-dynamic-notifications-exclusive-retry",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "resource_ceiling": {
+          "commit_budget_bytes": 34359738368,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 13958643712,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 4,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-b31a7fec16ebddee",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-86d37217f9de75d5": {
+      "benchmark": "SMTLIB",
+      "solver": "V5",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "expanded/common/SMTLIB/framework"
+      ],
+      "raw_results_member": "expanded/common/SMTLIB/framework/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "expanded/common/SMTLIB/framework/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": null,
+      "aggregate_memory_limit_bytes": 34359738368,
+      "max_workers": 4,
+      "recorded_protocol": "adaptive-windows-job-v3",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "493a81f5dc7d9c4ee716e3a0e2304f51f866d0f12b9eb3e83a7618e6884e9a14",
+      "recorded_resource_policy": {
+        "revision": "adaptive-windows-job-v3",
+        "max_workers": 4,
+        "reserve_ram_gib": 2.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 0.75,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.5,
+        "max_resource_retries": 1,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "shared-job-private-commit-hard-limit-dynamic-notifications-exclusive-retry",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "resource_ceiling": {
+          "commit_budget_bytes": 34359738368,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 13958643712,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 4,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-86d37217f9de75d5",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-e7b31362923622da": {
+      "benchmark": "SMTLIB",
+      "solver": "LS-WL",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "expanded/common/SMTLIB/framework"
+      ],
+      "raw_results_member": "expanded/common/SMTLIB/framework/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "expanded/common/SMTLIB/framework/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": null,
+      "aggregate_memory_limit_bytes": 34359738368,
+      "max_workers": 4,
+      "recorded_protocol": "adaptive-windows-job-v3",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": false,
+      "run_plan_fingerprint": "493a81f5dc7d9c4ee716e3a0e2304f51f866d0f12b9eb3e83a7618e6884e9a14",
+      "recorded_resource_policy": {
+        "revision": "adaptive-windows-job-v3",
+        "max_workers": 4,
+        "reserve_ram_gib": 2.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 0.75,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.5,
+        "max_resource_retries": 1,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "shared-job-private-commit-hard-limit-dynamic-notifications-exclusive-retry",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "resource_ceiling": {
+          "commit_budget_bytes": 34359738368,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 13958643712,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 4,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "recorded_search_round_limit": 8,
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-e7b31362923622da",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-d84291b728573f44": {
+      "benchmark": "SMTLIB",
+      "solver": "OpenCAD",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/OpenCAD"
+      ],
+      "raw_results_member": "records/OpenCAD/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "records/OpenCAD/run_plan.json",
+      "configuration_record_member": "records/OpenCAD/run_plan.json",
+      "recorded_configuration_member": null,
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "system_id": "Windows-x86-64",
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "independent_OpenCAD_v1",
+      "recorded_worker_configuration": null,
+      "recorded_configuration_sha256": null,
+      "recorded_implementation": "independent OpenCAD: original exact CNF; no LS/MCSAT preprocessing",
+      "recorded_source_identity": {
+        "runner/opencad.py": "656ff72625d49fd7c9788d51223de2d6e5a6067bac6d4cb00a6bbcceacc4644b",
+        "runner/process_control.py": "db12eedd689d51e16109ee902967c849b169dd05842da9a01163225621b641ed",
+        "wolfram/OpenCADWorker.wls": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149"
+      },
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "a8d0666a0ab6977939ef5173c4d2121ed7c2e1fdcf2b9d7d6916096573441684",
+      "normalization": {
+        "memout": "error/resource_exhausted",
+        "unmeasured_solve_seconds": "empty; raw zero placeholders are not invented timings"
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-d84291b728573f44",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-58908efa5b13011c": {
+      "benchmark": "RandInst",
+      "solver": "2D-LS",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/2DLS/run"
+      ],
+      "raw_results_member": "records/RandInst/2DLS/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/2DLS/record_index.json",
+      "run_plan_member": "records/RandInst/2DLS/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/2dls_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 64,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v2",
+        "ls_wl_restarts": 8,
+        "standalone_full_plane_check": true,
+        "local_candidate_seconds": 2,
+        "local_assignment_bit_limit": 4096,
+        "local_stagnation_jump_limit": 64,
+        "local_sector_policy": "alternating"
+      },
+      "recorded_configuration_sha256": "895ac10fe6a45ed9f902b9127da5e575e56e5849341848433cf2f108202c815f",
+      "recorded_implementation": "components/local_search/",
+      "recorded_source_identity": [
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/PaperSolvers.wl",
+          "measured_sha256": "1d74324060a7fa8c3d9c2f7c11185c093c52a0c359c7f1e0b115ccccb1b7ae75",
+          "public_sha256": "c294b330094f32e851bbeb23b5d911dbdfd96d4bb85fb3f2d78273aa72bc9541",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/LocalSearchSupport.wl",
+          "measured_sha256": "1e5d5d6884f9c675153f87a6ec105aab89b7a8692e8a927b523ed4bc69159f20",
+          "public_sha256": "16d6a6ba90dba0cd281a24fdf431a8112d6d2b555a0af1ab6b5e25d37b1e39b8",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/WolframLS.wl",
+          "measured_sha256": "6ee3fcc16038bed4efdd5a3f30b13df97bcf94e4eeb77c55bfeebc7600a2f1d9",
+          "public_sha256": "683040ad1bf951a5c77b2804cfc4be7aaaaa3afcbc940460fc9f004f4a609fcb",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "ac542684ab13795883676f64b6d8d0abdc8746358ca778d27ed5a6c7e5321c20",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "recorded_search_round_limit": 64,
+      "standalone_full_residual_plane_check": true,
+      "recorded_local_search_revision": "primitive-rational-residual-plane-v5",
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-58908efa5b13011c",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-69b604b6435860e8": {
+      "benchmark": "RandInst",
+      "solver": "V1",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/solvers/run"
+      ],
+      "raw_results_member": "records/RandInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/solvers/record_index.json",
+      "run_plan_member": "records/RandInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5caa4ee5e52e719836d12d3e17a028f49c7ee3bcc87f8ca1d8f211bd00600f15",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-69b604b6435860e8",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-745afcffc97a050c": {
+      "benchmark": "RandInst",
+      "solver": "V2",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/solvers/run"
+      ],
+      "raw_results_member": "records/RandInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/solvers/record_index.json",
+      "run_plan_member": "records/RandInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5caa4ee5e52e719836d12d3e17a028f49c7ee3bcc87f8ca1d8f211bd00600f15",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-745afcffc97a050c",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-1c93b179bd8219cc": {
+      "benchmark": "RandInst",
+      "solver": "V3",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/solvers/run"
+      ],
+      "raw_results_member": "records/RandInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/solvers/record_index.json",
+      "run_plan_member": "records/RandInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5caa4ee5e52e719836d12d3e17a028f49c7ee3bcc87f8ca1d8f211bd00600f15",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-1c93b179bd8219cc",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-4e76e3c021d36eb8": {
+      "benchmark": "RandInst",
+      "solver": "V4",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/solvers/run"
+      ],
+      "raw_results_member": "records/RandInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/solvers/record_index.json",
+      "run_plan_member": "records/RandInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5caa4ee5e52e719836d12d3e17a028f49c7ee3bcc87f8ca1d8f211bd00600f15",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-4e76e3c021d36eb8",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-0f89814b0f214526": {
+      "benchmark": "RandInst",
+      "solver": "V5",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/solvers/run"
+      ],
+      "raw_results_member": "records/RandInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/solvers/record_index.json",
+      "run_plan_member": "records/RandInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5caa4ee5e52e719836d12d3e17a028f49c7ee3bcc87f8ca1d8f211bd00600f15",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-0f89814b0f214526",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-2f30a8369a8a5b5c": {
+      "benchmark": "RandInst",
+      "solver": "LS-WL",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/RandInst/solvers/run"
+      ],
+      "raw_results_member": "records/RandInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/RandInst/solvers/record_index.json",
+      "run_plan_member": "records/RandInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": false,
+      "run_plan_fingerprint": "5caa4ee5e52e719836d12d3e17a028f49c7ee3bcc87f8ca1d8f211bd00600f15",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "recorded_search_round_limit": 8,
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-2f30a8369a8a5b5c",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-ba076dcde847a026": {
+      "benchmark": "RandInst",
+      "solver": "OpenCAD",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/OpenCAD"
+      ],
+      "raw_results_member": "records/OpenCAD/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "records/OpenCAD/run_plan.json",
+      "configuration_record_member": "records/OpenCAD/run_plan.json",
+      "recorded_configuration_member": null,
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "system_id": "Windows-x86-64",
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "independent_OpenCAD_v1",
+      "recorded_worker_configuration": null,
+      "recorded_configuration_sha256": null,
+      "recorded_implementation": "independent OpenCAD: original exact CNF; no LS/MCSAT preprocessing",
+      "recorded_source_identity": {
+        "runner/opencad.py": "656ff72625d49fd7c9788d51223de2d6e5a6067bac6d4cb00a6bbcceacc4644b",
+        "runner/process_control.py": "db12eedd689d51e16109ee902967c849b169dd05842da9a01163225621b641ed",
+        "wolfram/OpenCADWorker.wls": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149"
+      },
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "a8d0666a0ab6977939ef5173c4d2121ed7c2e1fdcf2b9d7d6916096573441684",
+      "normalization": {
+        "memout": "error/resource_exhausted",
+        "unmeasured_solve_seconds": "empty; raw zero placeholders are not invented timings"
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-ba076dcde847a026",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-1a1f726a888d499a": {
+      "benchmark": "SpecInst",
+      "solver": "2D-LS",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/2DLS/run"
+      ],
+      "raw_results_member": "records/SpecInst/2DLS/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/2DLS/record_index.json",
+      "run_plan_member": "records/SpecInst/2DLS/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/2dls_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 64,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v2",
+        "ls_wl_restarts": 8,
+        "standalone_full_plane_check": true,
+        "local_candidate_seconds": 2,
+        "local_assignment_bit_limit": 4096,
+        "local_stagnation_jump_limit": 64,
+        "local_sector_policy": "alternating"
+      },
+      "recorded_configuration_sha256": "895ac10fe6a45ed9f902b9127da5e575e56e5849341848433cf2f108202c815f",
+      "recorded_implementation": "components/local_search/",
+      "recorded_source_identity": [
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/PaperSolvers.wl",
+          "measured_sha256": "1d74324060a7fa8c3d9c2f7c11185c093c52a0c359c7f1e0b115ccccb1b7ae75",
+          "public_sha256": "c294b330094f32e851bbeb23b5d911dbdfd96d4bb85fb3f2d78273aa72bc9541",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/LocalSearchSupport.wl",
+          "measured_sha256": "1e5d5d6884f9c675153f87a6ec105aab89b7a8692e8a927b523ed4bc69159f20",
+          "public_sha256": "16d6a6ba90dba0cd281a24fdf431a8112d6d2b555a0af1ab6b5e25d37b1e39b8",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/local_search/WolframLS.wl",
+          "measured_sha256": "6ee3fcc16038bed4efdd5a3f30b13df97bcf94e4eeb77c55bfeebc7600a2f1d9",
+          "public_sha256": "683040ad1bf951a5c77b2804cfc4be7aaaaa3afcbc940460fc9f004f4a609fcb",
+          "adaptation": {
+            "PaperSolvers`": "TwoDLSCore`",
+            "PaperLocalSearchSupport`": "TwoDLSLocalSupport`",
+            "PaperWolframLS`": "TwoDLSWolframLS`"
+          },
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "deabcdeb9c89b1e7030205142bc5e1bc830b00e8c91cd624bb0c6e42c4330127",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "recorded_search_round_limit": 64,
+      "standalone_full_residual_plane_check": true,
+      "recorded_local_search_revision": "primitive-rational-residual-plane-v5",
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-1a1f726a888d499a",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-eb79dde27a70902c": {
+      "benchmark": "SpecInst",
+      "solver": "V1",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/solvers/run"
+      ],
+      "raw_results_member": "records/SpecInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/solvers/record_index.json",
+      "run_plan_member": "records/SpecInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5884b4dee80e0665daba1fb56ca8b9bdbf82b9f9c2f718e2372bc0ef0fc2f982",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-eb79dde27a70902c",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-65657da1c6fc7518": {
+      "benchmark": "SpecInst",
+      "solver": "V2",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/solvers/run"
+      ],
+      "raw_results_member": "records/SpecInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/solvers/record_index.json",
+      "run_plan_member": "records/SpecInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5884b4dee80e0665daba1fb56ca8b9bdbf82b9f9c2f718e2372bc0ef0fc2f982",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-65657da1c6fc7518",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-4fc4e78f9cac510c": {
+      "benchmark": "SpecInst",
+      "solver": "V3",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/solvers/run"
+      ],
+      "raw_results_member": "records/SpecInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/solvers/record_index.json",
+      "run_plan_member": "records/SpecInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5884b4dee80e0665daba1fb56ca8b9bdbf82b9f9c2f718e2372bc0ef0fc2f982",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-4fc4e78f9cac510c",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-af24b5314b1721ef": {
+      "benchmark": "SpecInst",
+      "solver": "V4",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/solvers/run"
+      ],
+      "raw_results_member": "records/SpecInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/solvers/record_index.json",
+      "run_plan_member": "records/SpecInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5884b4dee80e0665daba1fb56ca8b9bdbf82b9f9c2f718e2372bc0ef0fc2f982",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-af24b5314b1721ef",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-3e4150633ec96b54": {
+      "benchmark": "SpecInst",
+      "solver": "V5",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/solvers/run"
+      ],
+      "raw_results_member": "records/SpecInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/solvers/record_index.json",
+      "run_plan_member": "records/SpecInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "5884b4dee80e0665daba1fb56ca8b9bdbf82b9f9c2f718e2372bc0ef0fc2f982",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-3e4150633ec96b54",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-a5c9934fd429eceb": {
+      "benchmark": "SpecInst",
+      "solver": "LS-WL",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/SpecInst/solvers/run"
+      ],
+      "raw_results_member": "records/SpecInst/solvers/run/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": "records/SpecInst/solvers/record_index.json",
+      "run_plan_member": "records/SpecInst/solvers/run/run_plan.json",
+      "configuration_record_member": null,
+      "recorded_configuration_member": "code/config/run_config.json",
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "windows-safe8g-serial-v1",
+      "recorded_worker_configuration": {
+        "max_restart_stage1": 1,
+        "max_restart_stage2": 3,
+        "standalone_restarts": 1,
+        "max_jump_multiplier": 100000,
+        "random_direction_count": 6,
+        "open_cad_threshold_multiplier": 0.1,
+        "open_cad_min_stage2_seconds": 20,
+        "open_cad_min_degree_exclusive": 2,
+        "l2o_delta": 1,
+        "weight_decrease_probability": 0.003,
+        "engineering_optimizations": true,
+        "cache_enabled": true,
+        "cache_max_entries": 20000,
+        "require_exact_sat_model": true,
+        "engineering_revision": "shared-exact-v1",
+        "ls_wl_restarts": 8
+      },
+      "recorded_configuration_sha256": "6f1b65c331b03ba49fa79cf03b4005ed49bf4e2cf30e5d87d86924fa92efac07",
+      "recorded_implementation": "components/hybrid/",
+      "recorded_source_identity": [
+        {
+          "path": "components/hybrid/PaperSolvers.wl",
+          "measured_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "public_sha256": "4047812fd14ceb30a1f3a0e486590550e82be76d4f3639f50adf3755a75c6900",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/hybrid/WolframLS.wl",
+          "measured_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "public_sha256": "975406d8559f7e4df07c3f18c562cc3a53a0c046aceef6acac039573308e5df6",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        },
+        {
+          "path": "components/MCSATCore.wl",
+          "measured_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "public_sha256": "b94b195fe81ee14e8b222fd16fe98345c9b7d3cdd15c9c75763fa6ce20917d30",
+          "adaptation": "none",
+          "inverse_mapping_restores_original_bytes": true
+        }
+      ],
+      "matches_current_public_implementation_and_configuration": false,
+      "run_plan_fingerprint": "5884b4dee80e0665daba1fb56ca8b9bdbf82b9f9c2f718e2372bc0ef0fc2f982",
+      "recorded_resource_policy": {
+        "revision": "windows-safe8g-serial-v1",
+        "max_workers": 1,
+        "reserve_ram_gib": 4.0,
+        "minimum_worker_gib": 0.75,
+        "pressure_available_gib": 2.0,
+        "pressure_fraction": 0.9,
+        "poll_seconds": 0.25,
+        "max_resource_retries": 0,
+        "cpu_policy": "windows-nested-job-single-cpu-per-physical-core",
+        "thread_environment_limit": 1,
+        "memory_policy": "fixed-private-commit-hard-cap-with-single-worker-host-emergency-stop",
+        "time_accounting": "per_attempt_full_budget_final_solve",
+        "pause_workers": false,
+        "event_time_policy": "opaque-session-relative-elapsed-no-calendar-v1",
+        "execution_order": "solver-major-local-drain-barrier-v1",
+        "solver_order": [
+          "HELMS",
+          "2D-LS",
+          "V1",
+          "V2",
+          "V3",
+          "V5",
+          "LS-WL",
+          "V4"
+        ],
+        "host_guard_applies_to_single_worker": true,
+        "host_admission_available_ram_gib": 4.0,
+        "host_emergency_available_ram_gib": 2.0,
+        "host_emergency_available_commit_gib": 4.0,
+        "environment_pressure_action": "interrupt-audit-stop-campaign-no-final-result",
+        "declared_memory_limit_action": "final-resource-exhausted-no-retry",
+        "resource_ceiling": {
+          "commit_budget_bytes": 8589934592,
+          "reserve_commit_gib": 4.0,
+          "ram_soft_budget_bytes": 11811160064,
+          "windows_version": [
+            10,
+            0,
+            22000
+          ],
+          "cpu_models": [
+            "11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz"
+          ],
+          "worker_cpus": 1,
+          "cpu_limit_backend": "nested-job-affinity"
+        }
+      },
+      "recorded_search_round_limit": 8,
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-a5c9934fd429eceb",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-a4693bf4f5736f7a": {
+      "benchmark": "SpecInst",
+      "solver": "OpenCAD",
+      "archive_record_catalog": "INDEX.json",
+      "evidence_roots": [
+        "records/OpenCAD"
+      ],
+      "raw_results_member": "records/OpenCAD/results.jsonl",
+      "source_csv_member": null,
+      "record_index_member": null,
+      "run_plan_member": "records/OpenCAD/run_plan.json",
+      "configuration_record_member": "records/OpenCAD/run_plan.json",
+      "recorded_configuration_member": null,
+      "solve_timeout_seconds": 1200.0,
+      "runtime_identity": {
+        "system_id": "Windows-x86-64",
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)"
+      },
+      "os": "Windows-x86-64",
+      "worker_cpu_count": 1,
+      "memory_limit_bytes": 8589934592,
+      "aggregate_memory_limit_bytes": null,
+      "max_workers": 1,
+      "recorded_protocol": "independent_OpenCAD_v1",
+      "recorded_worker_configuration": null,
+      "recorded_configuration_sha256": null,
+      "recorded_implementation": "independent OpenCAD: original exact CNF; no LS/MCSAT preprocessing",
+      "recorded_source_identity": {
+        "runner/opencad.py": "656ff72625d49fd7c9788d51223de2d6e5a6067bac6d4cb00a6bbcceacc4644b",
+        "runner/process_control.py": "db12eedd689d51e16109ee902967c849b169dd05842da9a01163225621b641ed",
+        "wolfram/OpenCADWorker.wls": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149"
+      },
+      "matches_current_public_implementation_and_configuration": true,
+      "run_plan_fingerprint": "a8d0666a0ab6977939ef5173c4d2121ed7c2e1fdcf2b9d7d6916096573441684",
+      "normalization": {
+        "memout": "error/resource_exhausted",
+        "unmeasured_solve_seconds": "empty; raw zero placeholders are not invented timings"
+      },
+      "evidence_id": "ev-e9706642b0cfe708",
+      "time_limit_seconds": 1200.0,
+      "measurement_id": "m-a4693bf4f5736f7a",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-c12e5a4be224cefc": {
+      "benchmark": "SMTLIB",
+      "solver": "HELMS",
+      "time_limit_seconds": 1200,
+      "os": "Windows-x86-64",
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "memory_limit_bytes": 8589934592,
+      "worker_cpu_count": 1,
+      "source_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+      "configuration_sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263",
+      "evidence_id": "ev-f461096c1a5adbc5",
+      "raw_results_member": "records/results.jsonl",
+      "run_plan_member": "records/run_plan.json",
+      "model_validation_member": "model_validation.json",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "seed": 314159,
+      "measurement_id": "m-c12e5a4be224cefc",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-4ab3bcf96fc0c488": {
+      "benchmark": "RandInst",
+      "solver": "HELMS",
+      "time_limit_seconds": 1200,
+      "os": "Windows-x86-64",
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "memory_limit_bytes": 8589934592,
+      "worker_cpu_count": 1,
+      "source_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+      "configuration_sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263",
+      "evidence_id": "ev-f461096c1a5adbc5",
+      "raw_results_member": "records/results.jsonl",
+      "run_plan_member": "records/run_plan.json",
+      "model_validation_member": "model_validation.json",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "seed": 314159,
+      "measurement_id": "m-4ab3bcf96fc0c488",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-25c63f5709e6abba": {
+      "benchmark": "SpecInst",
+      "solver": "HELMS",
+      "time_limit_seconds": 1200,
+      "os": "Windows-x86-64",
+      "runtime_identity": {
+        "wolfram_version": "14.0.0 for Microsoft Windows (64-bit) (December 13, 2023)",
+        "system_id": "Windows-x86-64"
+      },
+      "memory_limit_bytes": 8589934592,
+      "worker_cpu_count": 1,
+      "source_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+      "configuration_sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263",
+      "evidence_id": "ev-f461096c1a5adbc5",
+      "raw_results_member": "records/results.jsonl",
+      "run_plan_member": "records/run_plan.json",
+      "model_validation_member": "model_validation.json",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "seed": 314159,
+      "measurement_id": "m-25c63f5709e6abba",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-2f8b0273ee192817": {
+      "benchmark": "SMTLIB",
+      "solver": "LS-WL",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "93de61ff5a34779270baa56879c9ee281477a215e8a63c87355a09a28bf2885a",
+      "evidence_id": "ev-ecf70e871c298514",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_member": "records/prepared_provenance/batch1/source/config/lswl_config.json",
+      "measurement_id": "m-2f8b0273ee192817",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-f0ec6ec9aa3468d7": {
+      "benchmark": "SMTLIB",
+      "solver": "HELMS",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-f0ec6ec9aa3468d7",
+      "public_implementation": {
+        "solver_path": "solvers/paper solvers/HELMS.wl",
+        "solver_sha256": "a6df84b0fdaee7e73710ffca37a8ced94c51a98fab98f6d9690c3af3d7493f1c",
+        "configuration_path": "config/helms_config.json",
+        "configuration_sha256": "01e52fe65e0050e0016b9f8d906fabc7c811eb187876d91a270149c9f79d9263",
+        "measured_solver_member": "measured/source/solvers/paper solvers/HELMS.wl",
+        "measured_configuration_member": "measured/source/config/helms_config.json",
+        "worker_member": "measured/runner/worker.wls",
+        "runner_member": "measured/runner/run_subset.py",
+        "byte_identical_to_measured_snapshots": true
+      },
+      "selected_input_count": 89,
+      "selection_manifest_member": "selected_manifest.jsonl",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-93274a0c99eef521": {
+      "benchmark": "SMTLIB",
+      "solver": "2D-LS",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "97b3b10e8816eb0dc1543eab1905da8f91caa1682d36ccccdbaaaecfd215dbc8",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-93274a0c99eef521",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-2d5c683d3a8ad810": {
+      "benchmark": "SMTLIB",
+      "solver": "V1",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "b6b08dbf419e63a5f7df04fe4bc0e71b12702ca60bc7d69d5f3a21a6c271c6e1",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-2d5c683d3a8ad810",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-930f652d51474c67": {
+      "benchmark": "SMTLIB",
+      "solver": "V2",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "0b313b6d738df40e2893f3d52a78355ec4c79dd45be4aef392e8c666ddeaa1d0",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-930f652d51474c67",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-1ac85b8d2cf32adc": {
+      "benchmark": "SMTLIB",
+      "solver": "V3",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "af1089c3d3f6d881d543b51dc9e473e0d19bc138c95124ba1144499657890a72",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-1ac85b8d2cf32adc",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-8b255e04caff6cc3": {
+      "benchmark": "SMTLIB",
+      "solver": "V4",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "2fa32c330c993e1b5d870a76da872d813870dd9f51257bdfbe66ed15bcec913d",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-8b255e04caff6cc3",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-a7ed5e918bad9bd0": {
+      "benchmark": "SMTLIB",
+      "solver": "V5",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "cc6e5063238aed252eb51a72a7f96f80a366e278ddcff33b4518834727a89383",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-a7ed5e918bad9bd0",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-b2bef94eb7374ae2": {
+      "benchmark": "SMTLIB",
+      "solver": "OpenCAD",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "runtime_identity": "14.0.0 for Linux x86 (64-bit) (December 13, 2023)",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "source_sha256": "24739db5064abcee2c12abe23f5c37583ebdd748162a977cc35f0c5cd18a2321",
+      "evidence_id": "ev-769c58c2f7dc0958",
+      "input_member_pattern": "inputs/{case_id}.json",
+      "model_validation_member": "model_validation.json",
+      "seed": 314159,
+      "configuration_members": [
+        "provenance/config.json",
+        "measured/source/config/"
+      ],
+      "measurement_id": "m-b2bef94eb7374ae2",
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds"
+    },
+    "m-15e498edc5dcade9": {
+      "schema_version": 1,
+      "measurement_id": "m-15e498edc5dcade9",
+      "protocol": "ubuntu24-cgroupv2-60s4g-two-physical-cores-validated-once-v1",
+      "worker_measurement_protocol": "validated-ast-typed-core-60s4g-linux-v2",
+      "timeout_seconds": 60,
+      "memory_max_bytes": 4294967296,
+      "memory_swap_max_bytes": 0,
+      "concurrency": 2,
+      "cpus": [
+        0,
+        2
+      ],
+      "original_archive_sha256": "9d782d399af29f8e5c934d451cd0ff26893781454a93df4d2d261305dc23a173",
+      "formal_result_prefix": "helms-ubuntu-60s4g-2core/results/all2260_60s4g_two_core/",
+      "runtime_identities": [
+        "{\"system_id\": \"Linux-x86-64\", \"wolfram_version\": \"14.0.0 for Linux x86 (64-bit) (December 13, 2023)\"}"
+      ],
+      "raw_classifications_preserved": true,
+      "unmeasured_or_failed_results_not_imputed": true,
+      "actual_os": "Ubuntu 24.04.4 LTS under WSL2",
+      "wolfram": "Mathematica 14.0.0 for Linux x86-64",
+      "no_other_new_method_results_included": true,
+      "benchmark": "SMTLIB",
+      "solver": "LiMbS",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "measurement_fingerprint": "902b92e46951f33ad4fa3efdfe94bc032f368e1249c501344bf41acf65b99c70",
+      "evidence_id": "ev-89288db8ef3ab4a5",
+      "input_member_pattern": null,
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds",
+      "evidence_archive": "data/evidence/ubuntu-limbs.tar.gz",
+      "run_plan_member": "helms-ubuntu-60s4g-2core/results/all2260_60s4g_two_core/run_plan.json",
+      "source_root_member": "helms-ubuntu-60s4g-2core/artifact/",
+      "source_sha256": "450699e092757f2f4d61b2ad9b7205e8ed5fc054be1ebf4c62bfe614bf363bde"
+    },
+    "m-b090f8fb7d36daa6": {
+      "schema_version": 1,
+      "measurement_id": "m-b090f8fb7d36daa6",
+      "protocol": "ubuntu24-cgroupv2-60s4g-two-physical-cores-validated-once-v1",
+      "worker_measurement_protocol": "validated-ast-typed-core-60s4g-linux-v2",
+      "timeout_seconds": 60,
+      "memory_max_bytes": 4294967296,
+      "memory_swap_max_bytes": 0,
+      "concurrency": 2,
+      "cpus": [
+        0,
+        2
+      ],
+      "original_archive_sha256": "9d782d399af29f8e5c934d451cd0ff26893781454a93df4d2d261305dc23a173",
+      "formal_result_prefix": "helms-ubuntu-60s4g-2core/results/all2260_60s4g_two_core/",
+      "runtime_identities": [
+        "{\"system_id\": \"Linux-x86-64\", \"wolfram_version\": \"14.0.0 for Linux x86 (64-bit) (December 13, 2023)\"}"
+      ],
+      "raw_classifications_preserved": true,
+      "unmeasured_or_failed_results_not_imputed": true,
+      "actual_os": "Ubuntu 24.04.4 LTS under WSL2",
+      "wolfram": "Mathematica 14.0.0 for Linux x86-64",
+      "no_other_new_method_results_included": true,
+      "benchmark": "RandInst",
+      "solver": "LiMbS",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "measurement_fingerprint": "902b92e46951f33ad4fa3efdfe94bc032f368e1249c501344bf41acf65b99c70",
+      "evidence_id": "ev-89288db8ef3ab4a5",
+      "input_member_pattern": null,
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds",
+      "evidence_archive": "data/evidence/ubuntu-limbs.tar.gz",
+      "run_plan_member": "helms-ubuntu-60s4g-2core/results/all2260_60s4g_two_core/run_plan.json",
+      "source_root_member": "helms-ubuntu-60s4g-2core/artifact/",
+      "source_sha256": "450699e092757f2f4d61b2ad9b7205e8ed5fc054be1ebf4c62bfe614bf363bde"
+    },
+    "m-25b50a5204a5c148": {
+      "schema_version": 1,
+      "measurement_id": "m-25b50a5204a5c148",
+      "protocol": "ubuntu24-cgroupv2-60s4g-two-physical-cores-validated-once-v1",
+      "worker_measurement_protocol": "validated-ast-typed-core-60s4g-linux-v2",
+      "timeout_seconds": 60,
+      "memory_max_bytes": 4294967296,
+      "memory_swap_max_bytes": 0,
+      "concurrency": 2,
+      "cpus": [
+        0,
+        2
+      ],
+      "original_archive_sha256": "9d782d399af29f8e5c934d451cd0ff26893781454a93df4d2d261305dc23a173",
+      "formal_result_prefix": "helms-ubuntu-60s4g-2core/results/all2260_60s4g_two_core/",
+      "runtime_identities": [
+        "{\"system_id\": \"Linux-x86-64\", \"wolfram_version\": \"14.0.0 for Linux x86 (64-bit) (December 13, 2023)\"}"
+      ],
+      "raw_classifications_preserved": true,
+      "unmeasured_or_failed_results_not_imputed": true,
+      "actual_os": "Ubuntu 24.04.4 LTS under WSL2",
+      "wolfram": "Mathematica 14.0.0 for Linux x86-64",
+      "no_other_new_method_results_included": true,
+      "benchmark": "SpecInst",
+      "solver": "LiMbS",
+      "time_limit_seconds": 60,
+      "os": "Linux-x86-64",
+      "memory_limit_bytes": 4294967296,
+      "worker_cpu_count": 1,
+      "measurement_fingerprint": "902b92e46951f33ad4fa3efdfe94bc032f368e1249c501344bf41acf65b99c70",
+      "evidence_id": "ev-89288db8ef3ab4a5",
+      "input_member_pattern": null,
+      "reporting_limit_seconds": 60,
+      "reporting_time_field": "solve_seconds",
+      "evidence_archive": "data/evidence/ubuntu-limbs.tar.gz",
+      "run_plan_member": "helms-ubuntu-60s4g-2core/results/all2260_60s4g_two_core/run_plan.json",
+      "source_root_member": "helms-ubuntu-60s4g-2core/artifact/",
+      "source_sha256": "450699e092757f2f4d61b2ad9b7205e8ed5fc054be1ebf4c62bfe614bf363bde"
+    }
+  }
+}

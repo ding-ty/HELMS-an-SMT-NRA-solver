@@ -1,0 +1,8 @@
+observation_id,benchmark,case_id,solver,measurement_id,status,solved,solve_seconds,worker_wall_seconds,external_elapsed_seconds,validation_seconds,stage,failure_kind,input_sha256,expected_status,within_60s
+obs-016d4b8e10de2d58234b4ea2,SpecInst,SpecInst/C_3_64,2D-LS,m-1a1f726a888d499a,sat,true,0.029937,2.0310000000026776,,,,,2976bcfe99762c70868df61f5bbaff3a133f97911e398982f102777e2522adf5,sat,true
+obs-c7dda69e20d2c3041b7484ba,SpecInst,SpecInst/C_4_64,2D-LS,m-1a1f726a888d499a,sat,true,0.0271461,2.0310000000026776,,,,,b19472596af87c3014f8688b140f84e2a5b2ee9b93ccebdb5e1b7f996237d755,sat,true
+obs-4297f967e97aeff23d980556,SpecInst,SpecInst/C_5_64,2D-LS,m-1a1f726a888d499a,sat,true,0.030072,1.8280000000013388,,,,,d01d3b83726c6dbac1f30191f1c4d59ed8612d8d51482bc65863f3d0efddd709,sat,true
+obs-4056ccfca5b7e219d1b9f10e,SpecInst,SpecInst/Han_3,2D-LS,m-1a1f726a888d499a,sat,true,0.0051327000000000005,1.7819999999992433,,,,,eab744a29e62b5d97a219ed0756be1fdb6858940a4c9e03edb85cd74db9da45a,sat,true
+obs-080d2520e5d95ec3cbf3d868,SpecInst,SpecInst/Hong2_11,2D-LS,m-1a1f726a888d499a,sat,true,0.0136801,1.7809999999954016,,,,,8b3c3159c354e344dc4e6a510e159367a4d2c838b3221f5426aade7c1840ae76,sat,true
+obs-a0855d616fa9ff1165440fdf,SpecInst,SpecInst/Hong2_12,2D-LS,m-1a1f726a888d499a,sat,true,0.0139614,1.7809999999954016,,,,,952a5af6573721d42f605a6aef645d282872d85f4cae1a9bda0d243eb297b072,sat,true
+obs-e4233c0187d9eb99c0d0a736,SpecInst,SpecInst/P,2D-LS,m-1a1f726a888d499a,sat,true,0.7220585,2.5319999999992433,,,,,0b52add64fa2737e6ba004fa7ea6520c9e931c2439fe4c2dcc2b0b4897d851c8,sat,true

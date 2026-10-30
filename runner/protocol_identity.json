@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "public_entrypoint": "runner/run_experiments.py",
+  "seed": 314159,
+  "solve_timeout_seconds_per_attempt": 60,
+  "prior_aborted_attempt_time_charged_to_next_attempt": false,
+  "profiles": {
+    "adaptive-windows-job-v3": {
+      "selection": "SMTLIB V1,V2,V3,V4,V5",
+      "max_workers": 4,
+      "aggregate_private_commit_limit_gib": 32,
+      "startup_grace_seconds": 60,
+      "single_cpu_per_worker": true,
+      "thread_environment_limit": 1,
+      "max_exclusive_resource_retries": 1,
+      "measured_scheduler_sha256": "d1ff5759fa83c607d8c1765a6c45d87129c5636f5cd719ba226b508cb4d83c95"
+    },
+    "windows-safe8g-serial-v1": {
+      "selection": "All HELMS, standalone 2D-LS and LS-WL; RandInst/SpecInst V1,V2,V3,V4,V5",
+      "max_workers": 1,
+      "private_commit_limit_gib": 8,
+      "startup_grace_seconds": 60,
+      "single_cpu_per_worker": true,
+      "thread_environment_limit": 1,
+      "max_exclusive_resource_retries": 0,
+      "host_emergency_available_physical_gib": 2,
+      "host_emergency_available_commit_gib": 4,
+      "host_interruption_is_solver_outcome": false,
+      "measured_scheduler_sha256": "83d4b179d1d736de07227f9122375914cfd9aa3cd753afcaeb765984f4db86bc"
+    },
+    "standalone-baseline": {
+      "selection": "LiMbS",
+      "max_workers": 1,
+      "private_commit_hard_limit_gib": null,
+      "startup_grace_seconds": 60,
+      "watchdog_grace_seconds_after_solve_budget": 10,
+      "finalization_grace_seconds": 60,
+      "cpu_index": 0,
+      "thread_environment_limit": 1,
+      "host_commit_reserve_mib": 1024,
+      "low_physical_memory_alone_is_interruption": false,
+      "measured_controller_sha256": "7e6409b12db1fc8b4f268bc931782ca549dded730a7daaf0a4f73cb191e88e1b"
+    },
+    "independent-OpenCAD-v1": {
+      "selection": "OpenCAD on all three benchmarks",
+      "measured_protocol": "independent_OpenCAD_v1",
+      "max_workers": 1,
+      "private_commit_hard_limit_gib": 8,
+      "startup_grace_seconds": 180,
+      "watchdog_grace_seconds_after_solve_budget": 5,
+      "finalization_grace_seconds": 60,
+      "verification_budget_seconds": 30,
+      "solve_timeout_seconds_per_attempt": 60,
+      "cpu_index": 0,
+      "thread_environment_limit": 1,
+      "host_commit_reserve_mib": 1024,
+      "low_physical_memory_alone_is_interruption": false,
+      "max_extra_precision": "Infinity",
+      "time_source": "Python perf_counter; worker SessionTime",
+      "timing_basis": "OpenCAD plus returned-cell witness extraction; startup and verification separate",
+      "input_policy": "original exact CNF and manifest variable order; no LS/MCSAT preprocessing; no reference answer in request",
+      "measured_sources": {
+        "runner/opencad.py": "656ff72625d49fd7c9788d51223de2d6e5a6067bac6d4cb00a6bbcceacc4644b",
+        "runner/process_control.py": "db12eedd689d51e16109ee902967c849b169dd05842da9a01163225621b641ed",
+        "wolfram/OpenCADWorker.wls": "17a56e7b0325bc9c501a11d2091f524aa862ea8061e0737218cb6afbe3156149"
+      },
+      "public_controller": "runner/protocols/opencad.py",
+      "public_process_control": "runner/protocols/opencad_process.py",
+      "public_worker": "components/OpenCADWorker.wls",
+      "adaptation": "Controller import and package-root/source/worker paths only; exact inverse substitution restores measured bytes. Worker and process-control bytes unchanged."
+    }
+  },
+  "controller_adaptations": "Package/import paths and code inventories are adapted to the public layout. Optional plotting and unused source-import workflows are omitted. Resource supervision, timeout handling and answer validation retain the measured implementations.",
+  "reference_version_limitations": {
+    "LiMbS/SMTLIB": "The retained CSV does not identify its exact library version. Measurements of the supplied upstream library are not an established version match.",
+    "LiMbS/RandInst,SpecInst": "The evidence identifies a modified library. The supplied upstream library is a different implementation; the observations are retained without relabeling their version."
+  },
+  "supplied_LiMbS": {
+    "repository": "https://github.com/lihaokun/LiMbS",
+    "commit": "7e1457b528c848343c6997bafb019ed4b39af413",
+    "sha256": "450699e092757f2f4d61b2ad9b7205e8ed5fc054be1ebf4c62bfe614bf363bde"
+  },
+  "HELMS_update": "Measurements of the supplied self-contained HELMS implementation are indexed by benchmark and measurement ID in data/measurements.json, alongside retained-hybrid observations with their recorded execution profiles.",
+  "LS-WL_update": "The supplied LS-WL defaults are in config/lswl_config.json. The measurement catalog includes 8-round benchmark observations and 64-round additional-input observations under their respective recorded execution profiles.",
+  "default_campaign": {
+    "input_manifest": "benchmarks/experiment_default.jsonl",
+    "input_bundle": "benchmarks/default_inputs.zip",
+    "instances": 2260,
+    "known_sat": 1610,
+    "known_unsat": 561,
+    "unlabelled": 89,
+    "planned_jobs": 21478,
+    "seed": 314159,
+    "selection": "2D-LS and LS-WL: known SAT plus unlabelled; other methods: all inputs"
+  }
+}

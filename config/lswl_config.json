@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "profile": "paper_strategy_shared_engineering_v1",
+  "worker": {
+    "max_restart_stage1": 1,
+    "max_restart_stage2": 3,
+    "standalone_restarts": 1,
+    "max_jump_multiplier": 100000,
+    "random_direction_count": 6,
+    "open_cad_threshold_multiplier": 0.1,
+    "open_cad_min_stage2_seconds": 20,
+    "open_cad_min_degree_exclusive": 2,
+    "l2o_delta": 1,
+    "weight_decrease_probability": 0.003,
+    "engineering_optimizations": true,
+    "cache_enabled": true,
+    "cache_max_entries": 20000,
+    "require_exact_sat_model": true,
+    "engineering_revision": "shared-exact-v1",
+    "ls_wl_restarts": 64
+  }
+}
